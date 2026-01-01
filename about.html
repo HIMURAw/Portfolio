@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog hakkında bilgiler">
+    <title>Hakkında - Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo">Hakkımda</a>
+                <nav class="header__nav">
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="about.html" class="active">Hakkında</a>
+                </nav>
+                <button class="header__menu-toggle" id="menuToggle" aria-label="Menüyü Aç">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="menuClose" aria-label="Menüyü Kapat">×</button>
+        <nav class="mobile-menu__links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkında</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <article class="about">
+                <div class="about__header">
+                    <img src="assets/himura.png" alt="Profil" class="about__image" id="aboutImage">
+                    <h1>Hakkında</h1>
+                </div>
+
+                <div class="about__content">
+                    <p>
+                        Merhaba! Ben bir yazılım geliştirici ve teknoloji tutkunuyum. Bu blog, 
+                        yazılım geliştirme, web tasarımı, teknoloji trendleri ve kişisel deneyimlerim 
+                        hakkında yazılar paylaştığım bir platformdur.
+                    </p>
+                    <p>
+                        Yazılım geliştirme alanında yıllardır çalışıyorum ve öğrendiğim bilgileri, 
+                        karşılaştığım sorunları ve çözümlerini burada sizlerle paylaşıyorum. 
+                        Ayrıca teknoloji dünyasındaki son gelişmeleri takip ediyor ve bunları 
+                        değerlendiriyorum.
+                    </p>
+                    <p>
+                        Blog yazılarımda pratik örnekler, kod parçacıkları ve gerçek projelerden 
+                        örnekler bulacaksınız. Amacım, okuyuculara faydalı bilgiler sunmak ve 
+                        yazılım geliştirme yolculuklarında onlara yardımcı olmaktır.
+                    </p>
+                </div>
+
+                <div class="about__skills">
+                    <h3>İlgi Alanlarım</h3>
+                    <ul>
+                        <li>Web Geliştirme</li>
+                        <li>Frontend Teknolojileri</li>
+                        <li>UI/UX Tasarım</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>CSS/SCSS</li>
+                        <li>Responsive Tasarım</li>
+                        <li>Modern Web Standartları</li>
+                    </ul>
+                </div>
+
+                <div class="about__content" style="margin-top: 3rem;">
+                    <p>
+                        İletişim için benimle iletişime geçmek isterseniz, aşağıdaki kanallardan 
+                        ulaşabilirsiniz. Sorularınız, önerileriniz veya işbirliği teklifleriniz 
+                        için her zaman açığım.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">© 2024 Blog. Tüm hakları saklıdır.</p>
+                <nav class="footer__links">
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="about.html">Hakkında</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

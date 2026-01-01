@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog yazısı detay sayfası">
+    <title>Blog Yazısı - Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo">Blog</a>
+                <nav class="header__nav">
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="about.html">Hakkında</a>
+                </nav>
+                <button class="header__menu-toggle" id="menuToggle" aria-label="Menüyü Aç">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="menuClose" aria-label="Menüyü Kapat">×</button>
+        <nav class="mobile-menu__links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkında</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <article>
+                <!-- Post Header -->
+                <header class="post-header">
+                    <span class="post-header__category" id="postCategory">Teknoloji</span>
+                    <h1 class="post-header__title" id="postTitle">Blog Yazısı Başlığı</h1>
+                    <div class="post-header__meta">
+                        <span id="postDate">15 Ocak 2024</span>
+                        <span>•</span>
+                        <div class="post-header__author">
+                            <div class="post-header__avatar"></div>
+                            <span id="postAuthor">Yazar</span>
+                        </div>
+                        <span>•</span>
+                        <span id="postReadTime">5 dakika okuma</span>
+                    </div>
+                </header>
+
+                <!-- Post Content -->
+                <div class="post-content">
+                    <img src="https://via.placeholder.com/1200x400" alt="Blog görseli" class="post-content__featured-image" id="postImage">
+
+                    <div id="postBody">
+                        <p>
+                            Bu örnek bir blog yazısı içeriğidir. Gerçek içerik JavaScript ile 
+                            yüklenebilir veya doğrudan HTML'e eklenebilir.
+                        </p>
+                        <h2>Başlık 2</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                            veniam, quis nostrud exercitation ullamco laboris.
+                        </p>
+                        <h3>Başlık 3</h3>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <ul>
+                            <li>İlk madde</li>
+                            <li>İkinci madde</li>
+                            <li>Üçüncü madde</li>
+                        </ul>
+                        <blockquote>
+                            "Bu bir alıntı örneğidir. Önemli bir noktayı vurgulamak için kullanılabilir."
+                        </blockquote>
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
+                            veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        </p>
+                        <h2>Sonuç</h2>
+                        <p>
+                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
+                            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Back to Home -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="index.html" class="btn btn--primary">← Ana Sayfaya Dön</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">© 2024 Blog. Tüm hakları saklıdır.</p>
+                <nav class="footer__links">
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="about.html">Hakkında</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

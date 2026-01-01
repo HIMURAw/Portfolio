@@ -1,0 +1,27 @@
+// Import all SCSS partials
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'layout';
+@import 'components';
+
+// Utility Classes
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: $spacing-md; }
+.mt-2 { margin-top: $spacing-lg; }
+.mt-3 { margin-top: $spacing-xl; }
+.mt-4 { margin-top: $spacing-2xl; }
+
+.mb-1 { margin-bottom: $spacing-md; }
+.mb-2 { margin-bottom: $spacing-lg; }
+.mb-3 { margin-bottom: $spacing-xl; }
+.mb-4 { margin-bottom: $spacing-2xl; }
+
+.p-1 { padding: $spacing-md; }
+.p-2 { padding: $spacing-lg; }
+.p-3 { padding: $spacing-xl; }
+.p-4 { padding: $spacing-2xl; }
+

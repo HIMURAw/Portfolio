@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern blog sitesi - Teknoloji, tasarım ve daha fazlası">
+    <title>Blog - Ana Sayfa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo">
+                    <span class="header__logo-gradient">Umut</span><span> Öztürk</span>
+                </a>
+                <nav class="header__nav">
+                    <a href="index.html" class="active">Ana Sayfa</a>
+                    <a href="about.html">Hakkında</a>
+                </nav>
+                <button class="header__menu-toggle" id="menuToggle" aria-label="Menüyü Aç">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="menuClose" aria-label="Menüyü Kapat">×</button>
+        <nav class="mobile-menu__links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="about.html">Hakkında</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__badge">
+                <span class="hero__badge-icon">★</span>
+                <span>2024'den Beri Güvenilir İçerik</span>
+            </div>
+            <h1 class="hero__title">Blog</h1>
+            <p class="hero__subtitle-gradient">+100 yazı ve +50 kategori ile</p>
+            <p class="hero__subtitle">Teknoloji, tasarım ve yazılım dünyasından en son haberler, ipuçları ve içgörüler sunuyoruz</p>
+            
+            <!-- Stats Cards -->
+            <div class="hero__stats">
+                <div class="stat-card">
+                    <div class="stat-card__icon">⭐</div>
+                    <div class="stat-card__value">4.9/5</div>
+                    <div class="stat-card__label">Mükemmel Puan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon">👥</div>
+                    <div class="stat-card__value">+100</div>
+                    <div class="stat-card__label">Blog Yazısı</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__icon">⚡</div>
+                    <div class="stat-card__value">7/24</div>
+                    <div class="stat-card__label">Güncel İçerik</div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero__cta">
+                <a href="#blogPosts" class="btn btn--primary btn--gradient">
+                    Yazıları İncele
+                    <span class="btn__arrow">→</span>
+                </a>
+                <a href="about.html" class="btn btn--outline-dark">
+                    <span class="btn__icon">⭐</span>
+                    Hakkında
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">🛡️</div>
+                    <h3 class="feature-card__title">Güvenilir</h3>
+                    <p class="feature-card__description">Doğrulanmış ve güncel bilgiler</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">⚡</div>
+                    <h3 class="feature-card__title">Hızlı</h3>
+                    <p class="feature-card__description">Anında erişilebilir içerik</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">✨</div>
+                    <h3 class="feature-card__title">Kaliteli</h3>
+                    <p class="feature-card__description">Premium içerik standartları</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <section class="section" id="blogPosts">
+                <h2 class="section__title">Son Yazılar</h2>
+                <div class="grid grid--3" id="blogPostsGrid">
+                    <!-- Blog posts will be loaded here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">© 2024 Blog. Tüm hakları saklıdır.</p>
+                <nav class="footer__links">
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="about.html">Hakkında</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
