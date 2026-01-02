@@ -50,62 +50,57 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Blog Posts Data (Sample Data)
 const blogPosts = [
-    {
-        id: 1,
-        title: 'Modern Web Geliştirme Teknikleri',
-        excerpt: '2024 yılında web geliştirme dünyasında öne çıkan modern teknikleri ve trendleri keşfedin.',
-        category: 'Teknoloji',
-        date: '20 Ocak 2024',
-        readTime: '5 dakika',
-        image: 'https://via.placeholder.com/600x300?text=Modern+Web+Development'
-    },
-    {
-        id: 2,
-        title: 'CSS Animasyonları ile Etkileyici Tasarımlar',
-        excerpt: 'CSS animasyonlarını kullanarak kullanıcı deneyimini artıracak etkileyici tasarımlar oluşturun.',
-        category: 'Tasarım',
-        date: '18 Ocak 2024',
-        readTime: '7 dakika',
-        image: 'https://via.placeholder.com/600x300?text=CSS+Animations'
-    },
-    {
-        id: 3,
-        title: 'JavaScript ES2024 Yeni Özellikleri',
-        excerpt: 'JavaScript\'in en yeni versiyonunda gelen heyecan verici özelliklere göz atın.',
-        category: 'Programlama',
-        date: '15 Ocak 2024',
-        readTime: '6 dakika',
-        image: 'https://via.placeholder.com/600x300?text=JavaScript+ES2024'
-    },
-    {
-        id: 4,
-        title: 'Responsive Tasarım İlkeleri',
-        excerpt: 'Modern web siteleri için responsive tasarım prensiplerini ve en iyi uygulamaları öğrenin.',
-        category: 'Tasarım',
-        date: '12 Ocak 2024',
-        readTime: '8 dakika',
-        image: 'https://via.placeholder.com/600x300?text=Responsive+Design'
-    },
-    {
-        id: 5,
-        title: 'React Hooks Kullanım Rehberi',
-        excerpt: 'React Hooks ile fonksiyonel bileşenlerde state yönetimi ve side effect işlemleri.',
-        category: 'Programlama',
-        date: '10 Ocak 2024',
-        readTime: '10 dakika',
-        image: 'https://via.placeholder.com/600x300?text=React+Hooks'
-    },
-    {
-        id: 6,
-        title: 'Web Performans Optimizasyonu',
-        excerpt: 'Web sitenizin hızını artırmak için kanıtlanmış performans optimizasyon teknikleri.',
-        category: 'Teknoloji',
-        date: '8 Ocak 2024',
-        readTime: '9 dakika',
-        image: 'https://via.placeholder.com/600x300?text=Web+Performance'
-    }
+   {
+    id: 1,
+    title: 'PX-Guard',
+    excerpt: 'JS ve MongoDB kullanılarak geliştirilmiş, aktif olarak kullanılan bir Guard (koruma) sistemi.',
+    category: 'Guard System',
+    date: 'Aktif',
+    readTime: 'JS + MongoDB',
+    image: 'https://via.placeholder.com/600x300?text=PX-Guard',
+    link: 'https://github.com/HIMURAw/PX-Guard'
+},
+{
+    id: 2,
+    title: 'Pixel-license',
+    excerpt: 'JS ve Lua ile geliştirilmiş, lisans yönetimi sağlayan bir sistem.',
+    category: 'License System',
+    date: 'Aktif',
+    readTime: 'JS + Lua',
+    image: 'https://via.placeholder.com/600x300?text=Pixel-License',
+    link: 'https://github.com/HIMURAw/Pixel-license'
+},
+{
+    id: 3,
+    title: 'Backdoor-scanner',
+    excerpt: 'Batchfile kullanılarak hazırlanmış, backdoor tespiti yapan bir guard sistemi.',
+    category: 'Guard System',
+    date: 'Aktif',
+    readTime: 'Batchfile',
+    image: 'https://via.placeholder.com/600x300?text=Backdoor-Scanner',
+    link: 'https://github.com/HIMURA/Backdoor-scanner'
+},
+{
+    id: 4,
+    title: 'BotBase',
+    excerpt: 'JavaScript ile geliştirilmiş, bot projeleri için temel altyapı sistemi.',
+    category: 'Base System',
+    date: 'Aktif',
+    readTime: 'JavaScript',
+    image: 'https://via.placeholder.com/600x300?text=BotBase',
+    link: 'https://github.com/HIMURAw/BotBase'
+},
+{
+    id: 5,
+    title: 'PXBotBaseTS',
+    excerpt: 'TypeScript kullanılarak hazırlanmış, ölçeklenebilir bot altyapı sistemi.',
+    category: 'Base System',
+    date: 'Aktif',
+    readTime: 'TypeScript',
+    image: 'https://via.placeholder.com/600x300?text=PXBotBaseTS',
+    link: 'https://github.com/HIMURAw/PXBotBaseTS'
+}
 ];
 
 // Load Blog Posts on Index Page
@@ -115,7 +110,8 @@ function loadBlogPosts() {
 
     blogPostsContainer.innerHTML = blogPosts.map(post => `
         <article class="blog-card">
-            <img src="${post.image}" alt="${post.title}" class="blog-card__image">
+        <a href="${post.link}" target="_blank">
+            <img src="./assets/himura.png" alt="${post.title}" class="blog-card__image">
             <div class="blog-card__content">
                 <div class="blog-card__meta">
                     <span class="blog-card__category">${post.category}</span>
@@ -129,6 +125,7 @@ function loadBlogPosts() {
                     Devamını Oku →
                 </a>
             </div>
+        <a/>
         </article>
     `).join('');
 }
