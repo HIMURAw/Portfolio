@@ -12,10 +12,14 @@ export const PageHeaderStyled = styled.h2`
   grid-column: 2 / 13;
   font-size: ${typeScale.headline};
   font-weight: bold;
-  color: ${blue["110"]};
+  color: ${(props) => props.theme.text};
   padding-block: 1.25rem;
-  background: white;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #ddd 100%);
+  background: ${(props) => props.theme.text};
+  background: linear-gradient(
+    180deg,
+    ${(props) => props.theme.text} 0%,
+    ${(props) => props.theme.textSecondary} 100%
+  );
   line-height: 1;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

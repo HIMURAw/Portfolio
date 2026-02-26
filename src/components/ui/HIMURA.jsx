@@ -111,7 +111,7 @@ export const HIMURA = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(255,255,255,0.08)",
+            backgroundColor: "rgba(0,0,0,0.1)",
             pointerEvents: "none",
           }}
         />

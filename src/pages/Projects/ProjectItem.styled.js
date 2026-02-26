@@ -44,11 +44,12 @@ export const Face = styled.div`
   border-radius: 0.5rem;
   transition: all 0.2s ease;
   &.face-2 {
-    background-color: ${blue["30"]};
+    background-color: ${(props) => props.theme.glass};
     transform: rotateY(90deg);
     transform-origin: right;
-    box-shadow: -0.6rem 0.6rem 0 ${blue["00"]};
+    box-shadow: -0.6rem 0.6rem 0 ${(props) => props.theme.brutal};
     .text {
+      color: ${(props) => props.theme.text};
       height: 100%;
       transform: rotateY(180deg);
       display: flex;
@@ -58,10 +59,11 @@ export const Face = styled.div`
     }
   }
   &.face-3 {
-    background-color: ${blue["50"]};
+    background-color: ${(props) => props.theme.surface};
     transform: rotateX(90deg);
     transform-origin: top;
     .text {
+      color: ${(props) => props.theme.text};
       transform: rotateX(180deg);
       padding: 0.5rem;
       font-size: ${typeScale.subtitle};
@@ -69,7 +71,7 @@ export const Face = styled.div`
     }
   }
   &.face-1 {
-    box-shadow: 0.6rem 0.2rem 0 ${blue["00"]};
+    box-shadow: 0.6rem 0.2rem 0 ${(props) => props.theme.brutal};
 
     .img {
       position: absolute;
@@ -91,6 +93,7 @@ export const Face = styled.div`
       justify-content: space-between;
       flex-direction: column;
       height: 100%;
+      color: ${(props) => props.theme.text};
       .buttons {
         display: flex;
         justify-content: space-between;
@@ -98,7 +101,7 @@ export const Face = styled.div`
       }
     }
     &:hover {
-      box-shadow: 0.6rem 0.6rem 0 ${blue["00"]};
+      box-shadow: 0.6rem 0.6rem 0 ${(props) => props.theme.brutal};
       .content {
         opacity: 1;
         transform: scale(0.8);

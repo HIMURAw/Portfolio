@@ -3,6 +3,7 @@ import { typeScale } from "../../utils";
 
 export const Paragraph = styled.p`
   font-size: ${typeScale.text};
+  color: ${(props) => props.theme.text};
   grid-column: 2/ 7;
   line-height: 2rem;
   padding-block: 2rem;

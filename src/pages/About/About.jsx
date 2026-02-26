@@ -32,27 +32,36 @@ export const About = () => {
 
   useEffect(() => {
     gsap.registerPlugin(Flip);
-    let cards = document.querySelectorAll(".about-item");
+    const cards = document.querySelectorAll(".about-item");
+
+    const handleInteraction = (e) => {
+      const card = e.currentTarget;
+      if (card.classList.contains("active")) return;
+
+      const state = Flip.getState(cards);
+
+      cards.forEach((c) => c.classList.remove("active"));
+      card.classList.add("active");
+
+      Flip.from(state, {
+        duration: 0.5,
+        ease: "elastic.out(1,0.9)",
+        absolute: true,
+      });
+    };
+
     cards.forEach((card, i) => {
-      if (i === 0) {
+      if (i === 0 && !document.querySelector(".about-item.active")) {
         card.classList.add("active");
       }
-      card.addEventListener("mouseenter", (e) => {
-        if (card.classList.contains("active")) {
-          return;
-        }
-        const state = Flip.getState(cards);
-        cards.forEach((c) => {
-          c.classList.remove("active");
-        });
-        card.classList.add("active");
-        Flip.from(state, {
-          duration: 0.5,
-          ease: "elastic.out(1,0.9)",
-          absolute: true,
-        });
-      });
+      card.addEventListener("mouseenter", handleInteraction);
     });
+
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener("mouseenter", handleInteraction);
+      });
+    };
   }, []);
   return (
     <div ref={ref}>

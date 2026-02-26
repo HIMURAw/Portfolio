@@ -8,21 +8,21 @@ const SwitcherContainer = styled.div`
   left: 20px;
   z-index: 1000;
   display: flex;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  gap: 5px;
+  background: ${(props) => props.theme.glass};
   backdrop-filter: blur(10px);
   padding: 5px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid ${(props) => props.theme.glassBorder};
+  box-shadow: 0 4px 15px ${(props) => props.theme.shadow};
 `;
 
 const LanguageButton = styled.button`
-  background: ${(props) => (props.active ? "rgba(255, 255, 255, 0.15)" : "transparent")};
-  color: ${(props) => (props.active ? "#fff" : "rgba(255, 255, 255, 0.5)")};
+  background: ${(props) => (props.active ? props.theme.glassBorder : "transparent")};
+  color: ${(props) => (props.active ? props.theme.text : props.theme.textSecondary)};
   border: none;
   border-radius: 20px;
-  padding: 5px 12px;
+  padding: 8px 15px;
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: 600;
@@ -30,8 +30,8 @@ const LanguageButton = styled.button`
   text-transform: uppercase;
 
   &:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    color: ${(props) => props.theme.text};
+    background: ${(props) => props.theme.glassBorder};
   }
 `;
 

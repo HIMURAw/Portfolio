@@ -7,6 +7,7 @@ import { CloseButton, MenuButton } from "./form";
 import { StyledNavbar } from "./Navbar.styled";
 import { NavbarItem, HIMURA } from "./ui";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useLanguage } from "../context/LanguageContext";
 
 export const Navbar = ({ children }) => {
@@ -55,6 +56,7 @@ export const Navbar = ({ children }) => {
   return (
     <>
       <LanguageSwitcher />
+      <ThemeSwitcher />
       <MenuButton
         className={navBarVisible ? "" : "active"}
         onClick={() => setNavBarVisible(true)}

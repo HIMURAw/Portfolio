@@ -4,7 +4,11 @@ import { StyledExperienceItem } from "./ExperienceItem.styled";
 export const ExperienceItem = (props) => {
   const { data } = props;
   return (
-    <StyledExperienceItem className="experience-item" color={data.color}>
+    <StyledExperienceItem
+      className="experience-item"
+      color={data.color}
+      data-flip-id={data.id || data.name}
+    >
       <div className="header">
         <div className="image">
           <div className="wrapper">

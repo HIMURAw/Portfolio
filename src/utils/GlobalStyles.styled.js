@@ -8,9 +8,6 @@ ${normalize()}
   font-size: 16px;
   line-height: 24px;
   font-family: ${primaryFont};
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #1f1f1f;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,5 +26,8 @@ ${normalize()}
 body {
   margin: 0;
   min-height: 100vh;
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.background};
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 `;

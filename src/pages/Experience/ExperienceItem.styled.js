@@ -4,12 +4,12 @@ import { blue, typeScale } from "../../utils";
 export const StyledExperienceItem = styled.div`
   overflow: hidden;
   background-color: ${(props) =>
-    props.color ? props.color["60"] : blue["60"]};
+    props.color ? props.color["60"] : props.theme.primary};
 
-  color: ${(props) => (props.color ? props.color["00"] : blue["00"])};
-  border: 4px solid ${(props) => (props.color ? props.color["00"] : blue["00"])};
+  color: ${(props) => (props.color ? props.color["110"] : props.theme.text)};
+  border: 4px solid ${(props) => (props.color ? props.color["00"] : props.theme.brutal)};
   box-shadow: 0.8rem 0.8rem 0
-    ${(props) => (props.color ? props.color["00"] : blue["00"])};
+    ${(props) => (props.color ? props.color["00"] : props.theme.brutal)};
   border-radius: 1rem;
   height: 400px;
   width: 200px;
@@ -50,7 +50,7 @@ export const StyledExperienceItem = styled.div`
         overflow: hidden;
         rotate: -90deg;
         background-color: ${(props) =>
-          props.color ? props.color["00"] : blue["00"]};
+    props.color ? props.color["00"] : blue["00"]};
       }
       img {
         width: 100%;

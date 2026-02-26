@@ -4,8 +4,8 @@ import { blue, typeScale } from "../../utils";
 export const NavbarItem = styled.a`
   font-size: ${typeScale.text};
   font-weight: semibold;
-  color: #fff4;
-  transition: all 0.2 ease-out;
+  color: ${(props) => props.theme.textSecondary};
+  transition: all 0.2s ease-out;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ export const NavbarItem = styled.a`
   .dot {
     width: 8px;
     height: 8px;
-    background-color: ${blue["60"]};
+    background-color: ${(props) => props.theme.primary};
     border-radius: 50%;
     position: absolute;
     bottom: -10px;
@@ -25,17 +25,17 @@ export const NavbarItem = styled.a`
   }
   &:hover,
   &:focus {
-    color: #fffa;
+    color: ${(props) => props.theme.text};
   }
 
   &:active,
   &.active {
-    color: #fff;
+    color: ${(props) => props.theme.text};
   }
 
   @media screen and (max-width: 720px) {
     margin-left: 0.5rem;
-    color: #fff7;
+    color: ${(props) => props.theme.textSecondary};
     .dot {
       left: -15px;
       bottom: 50%;

@@ -5,20 +5,24 @@ import { Contact } from "./pages/Contact";
 import { Experience } from "./pages/Experience";
 import { Home } from "./pages/home";
 import { Projects } from "./pages/Projects";
-import { LanguageProvider } from "./context/LanguageContext";
+import { LanguageProvider, ThemeProvider } from "./context";
+import { GlobalStyles } from "./utils";
 
 function App() {
   return (
     <LanguageProvider>
-      <div className="App">
-        <Navbar>
-          <Home />
-          <Projects />
-          <Experience />
-          <About />
-          <Contact />
-        </Navbar>
-      </div>
+      <ThemeProvider>
+        <GlobalStyles />
+        <div className="App">
+          <Navbar>
+            <Home />
+            <Projects />
+            <Experience />
+            <About />
+            <Contact />
+          </Navbar>
+        </div>
+      </ThemeProvider>
     </LanguageProvider>
   );
 }

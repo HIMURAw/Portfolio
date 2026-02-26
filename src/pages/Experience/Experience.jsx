@@ -31,29 +31,39 @@ export const Experience = () => {
 
   useEffect(() => {
     gsap.registerPlugin(Flip);
-    let cards = document.querySelectorAll(".experience-item");
+    const cards = document.querySelectorAll(".experience-item");
+
+    const eventType = width < 720 ? "click" : "mouseenter";
+
+    const handleInteraction = (e) => {
+      const card = e.currentTarget;
+      if (card.classList.contains("active")) return;
+
+      const state = Flip.getState(cards);
+
+      cards.forEach((c) => c.classList.remove("active"));
+      card.classList.add("active");
+
+      Flip.from(state, {
+        duration: 0.5,
+        ease: "elastic.out(1,0.9)",
+        absolute: true,
+      });
+    };
+
     cards.forEach((card, i) => {
-      card.classList.remove("active");
-      if (i === 0) {
+      if (i === 0 && !document.querySelector(".experience-item.active")) {
         card.classList.add("active");
       }
-      card.addEventListener(width < 720 ? "click" : "mouseenter", (e) => {
-        if (card.classList.contains("active")) {
-          return;
-        }
-        const state = Flip.getState(cards);
-        cards.forEach((c) => {
-          c.classList.remove("active");
-        });
-        card.classList.add("active");
-        Flip.from(state, {
-          duration: 0.5,
-          ease: "elastic.out(1,0.9)",
-          absolute: true,
-        });
-      });
+      card.addEventListener(eventType, handleInteraction);
     });
-  }, [width]);
+
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener(eventType, handleInteraction);
+      });
+    };
+  }, [width, localizedExperiences]);
   return (
     <div ref={ref}>
       <Page header={t("experience.header")} id="experience">

@@ -4,12 +4,12 @@ import { blue, typeScale } from "../../utils";
 export const AboutItemWrapper = styled.div`
   overflow: hidden;
   background-color: ${(props) =>
-    props.color ? props.color["60"] : blue["60"]};
+    props.color ? props.color["60"] : props.theme.primary};
 
-  color: ${(props) => (props.color ? props.color["00"] : blue["00"])};
-  border: 4px solid ${(props) => (props.color ? props.color["00"] : blue["00"])};
+  color: ${(props) => (props.color ? props.color["00"] : props.theme.text)};
+  border: 4px solid ${(props) => (props.color ? props.color["00"] : props.theme.brutal)};
   box-shadow: 6px 6px 0
-    ${(props) => (props.color ? props.color["00"] : blue["00"])};
+    ${(props) => (props.color ? props.color["00"] : props.theme.brutal)};
   border-radius: 1rem;
   width: 90px;
   height: 90px;

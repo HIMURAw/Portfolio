@@ -20,8 +20,8 @@ export const StyledNavbar = styled.nav`
     transform: translateX(-150%);
     width: 70vw;
     height: 100%;
-    background-color: #12121233;
-    backdrop-filter: blur(5px);
+    background-color: ${(props) => props.theme.glass};
+    backdrop-filter: blur(10px);
     transition: transform 0.2s ease-in-out;
     ul {
       flex-direction: column;

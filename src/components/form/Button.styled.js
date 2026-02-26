@@ -3,7 +3,7 @@ import { blue, typeScale } from "../../utils";
 
 export const Button = styled.button`
   all: unset;
-  background-color: ${(props) => (props.bg ? props.bg["60"] : blue["60"])};
+  background-color: ${(props) => (props.bg ? props.bg["60"] : props.theme.primary)};
   font-size: ${(props) =>
     props.sm ? typeScale.helperText : typeScale.paragraph};
   font-weight: bold;
@@ -11,10 +11,10 @@ export const Button = styled.button`
 
   min-width: 50px;
   min-height: 40px;
-  border: 3px solid ${(props) => (props.bg ? props.bg["00"] : blue["00"])};
+  border: 3px solid ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   border-radius: 0.5rem;
-  color: ${(props) => (props.bg ? props.bg["00"] : blue["00"])};
-  box-shadow: 8px 8px 0 ${(props) => (props.bg ? props.bg["00"] : blue["00"])};
+  color: ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
+  box-shadow: 8px 8px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   cursor: pointer;
   transition: all 0.1s ease-in;
   display: flex;
@@ -22,21 +22,21 @@ export const Button = styled.button`
   align-items: center;
 
   &:hover {
-    background-color: ${(props) => (props.bg ? props.bg["70"] : blue["70"])};
+    background-color: ${(props) => (props.bg ? props.bg["70"] : props.theme.secondary)};
     box-shadow: 10px 10px 0
-      ${(props) => (props.bg ? props.bg["00"] : blue["00"])};
+      ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
   }
 
   &:active,
   &:focus {
-    background-color: ${(props) => (props.bg ? props.bg["80"] : blue["80"])};
-    box-shadow: 4px 4px 0 ${(props) => (props.bg ? props.bg["00"] : blue["00"])};
+    background-color: ${(props) => (props.bg ? props.bg["80"] : props.theme.primary)};
+    box-shadow: 4px 4px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
   }
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-    box-shadow: 2px 2px 0 ${(props) => (props.bg ? props.bg["00"] : blue["00"])};
+    box-shadow: 2px 2px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
   }
 `;
 

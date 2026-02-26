@@ -45,8 +45,12 @@ export const Name = styled.h1`
   font-size: ${typeScale.bigDisplay};
   font-weight: bolder;
   margin: 0;
-  background: white;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #ddd 100%);
+  background: ${(props) => props.theme.text};
+  background: linear-gradient(
+    180deg,
+    ${(props) => props.theme.text} 0%,
+    ${(props) => props.theme.textSecondary} 100%
+  );
   line-height: 1;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
