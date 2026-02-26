@@ -22,7 +22,7 @@ export const Contact = () => {
     <Page header="Contact">
       <ContactWrapper>
         <ContactForm
-          action="https://formspree.io/f/mbjbvlpv"
+          action="https://formspree.io/f/movdrzbd"
           method="POST"
           name="contact"
           id="contactform"
@@ -58,7 +58,7 @@ export const Contact = () => {
         <div className="buttons">
           <div className="socials">
             <a
-              href="https://www.linkedin.com/in/teshankraut/"
+              href="https://www.linkedin.com/in/umut-%C3%B6zt%C3%BCrk-224501344/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,14 +67,14 @@ export const Contact = () => {
               </IconButton>
             </a>
 
-            <a href="mailto:teshank.2137@gamil.com">
+            <a href="mailto:zamtos79@gmail.com">
               <IconButton bg={green}>
                 <AiOutlineMail size={40} />
               </IconButton>
             </a>
 
             <a
-              href="https://github.com/teshank2137"
+              href="https://github.com/HIMURAw"
               target="_blank"
               rel="noopener noreferrer"
             >

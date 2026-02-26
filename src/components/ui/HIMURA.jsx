@@ -16,17 +16,15 @@ export const HIMURA = () => {
       const rekt = penguinEl.getBoundingClientRect();
 
       const anchorX = rekt.left + rekt.width / 2;
-      const anchorY = rekt.top + rekt.height / 2;
-      // Gözlerin hareketini biraz daha belirgin ve her yöne eşit hale getir
-      const intensity = 0.06;
+      const anchorY = rekt.top + rekt.height / 4;
+      const intensity = 0.01;
 
       const moveX = (mouseX - anchorX) * intensity;
       const moveY = (mouseY - anchorY) * intensity;
 
-      // Hareketi sınırla (pixel art gözler küçük, max 4px)
       const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
       const clampedX = clamp(moveX, -4, 4);
-      const clampedY = clamp(moveY, -4, 4);
+      const clampedY = clamp(moveY, -3, 3);
 
       [leftEyeRef, rightEyeRef].forEach((eye) => {
         if (eye.current) {
@@ -83,7 +81,7 @@ export const HIMURA = () => {
             left: "37%",
             top: "28%",
             width: "3px",
-            height: "3px",
+            height: "5px",
             backgroundColor: "#2a1a0e",
             transition: "transform 0.05s ease-out",
             imageRendering: "pixelated",
@@ -97,7 +95,7 @@ export const HIMURA = () => {
             left: "52%",
             top: "28%",
             width: "3px",
-            height: "3px",
+            height: "5px",
             backgroundColor: "#2a1a0e",
             transition: "transform 0.05s ease-out",
             imageRendering: "pixelated",
