@@ -49,36 +49,38 @@ export const About = () => {
       <Page header="About">
         <Text>
           <Paragraph>
-            I'm a passionate programmer, who is always looking for new
-            challenges to improve myself, also a team player, who is always
-            ready to learn new things and help others.
-            <br />I was born and raised in Nagpur, India. I love to play guitar
-            and ukulele and in my free time I like to read books, watch movies
-            and play video games.
+            I'm a 17-year-old full-stack developer from Turkey, focused on
+            building clean, scalable systems that power real communities and
+            servers. I love designing interactive experiences, from FiveM game
+            systems and Discord bots to modern web apps.
+            <br />
+            I care about writing maintainable code, experimenting with new
+            technologies and constantly pushing myself to the next level. When
+            I'm not coding, I explore new ideas, learn, and improve my craft.
           </Paragraph>
           <Educations>
             <AboutItem
               color={blue}
               active
               data={{
-                title: "D.Y. Patil college of engineering, Pune",
-                p: "Bachelors of Computer Engineering (2019-2023)",
+                title: "Dikmen Meslek Lisesi",
+                p: "Self-taught Full-Stack Developer • 17 years old",
                 image: dyp,
               }}
             />
             <AboutItem
               color={green}
               data={{
-                title: "M.P. Deo D. Science College, Nagpur",
-                p: "High School (2017-2019)",
+                title: "Game & FiveM Development",
+                p: "Advanced FiveM systems, Lua, JavaScript and server architecture",
                 image: highschool,
               }}
             />
             <AboutItem
               color={yellow}
               data={{
-                title: "School of Scholars, Nagpur",
-                p: "Secondary Education (2007-2017)",
+                title: "Web & Community Projects",
+                p: "React, Next.js, Node.js, databases and Discord bot ecosystems",
                 image: sos,
               }}
             />

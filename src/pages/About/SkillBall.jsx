@@ -13,20 +13,23 @@ const Skills = () => {
     return b > 0.5 ? a * k : a * -1 * k;
   };
   const skills = [
-    "Python",
+    "Lua",
     "JavaScript",
     "TypeScript",
-    "Dart",
     "HTML",
     "CSS",
-    "Django",
-    "Flutter",
-    "ReactJs",
-    "NextJS",
-    "NodeJs",
-    "ExpressJS",
-    "ThreeJs",
-    "Redux",
+    "C#",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "Tailwind CSS",
+    "Discord.js",
+    "qb-core",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Arduino",
   ];
   const g = useRef();
   useFrame(() => {

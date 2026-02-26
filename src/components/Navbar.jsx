@@ -5,7 +5,7 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { NavbarContext } from "../context";
 import { CloseButton, MenuButton } from "./form";
 import { StyledNavbar } from "./Navbar.styled";
-import { NavbarItem, Penguin } from "./ui";
+import { NavbarItem, HIMURA } from "./ui";
 
 export const Navbar = ({ children }) => {
   const activeDot = useRef(null);
@@ -85,7 +85,7 @@ export const Navbar = ({ children }) => {
               }}
               id="home"
             >
-              <Penguin />
+              <HIMURA />
               <div className="dot" ref={activeDot} />
             </NavbarItem>
           </li>
