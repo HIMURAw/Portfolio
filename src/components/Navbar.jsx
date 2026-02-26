@@ -6,17 +6,23 @@ import { NavbarContext } from "../context";
 import { CloseButton, MenuButton } from "./form";
 import { StyledNavbar } from "./Navbar.styled";
 import { NavbarItem, HIMURA } from "./ui";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLanguage } from "../context/LanguageContext";
 
 export const Navbar = ({ children }) => {
+  const { t } = useLanguage();
   const activeDot = useRef(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [currentPage, setCurrentPage] = useState(null);
   const [navBarVisible, setNavBarVisible] = useState(false);
 
   const handelDotMovement = (e) => {
+    if (!e || !e.target || !activeDot.current) return;
+
     setIsScrolling(true);
-    if (e.scroll !== false) {
-      document.getElementById(`${e.target.id}-page`).scrollIntoView();
+    if (e.scroll !== false && e.target.id) {
+      const pageEl = document.getElementById(`${e.target.id}-page`);
+      if (pageEl) pageEl.scrollIntoView();
     }
 
     const state = Flip.getState(activeDot.current);
@@ -48,6 +54,7 @@ export const Navbar = ({ children }) => {
 
   return (
     <>
+      <LanguageSwitcher />
       <MenuButton
         className={navBarVisible ? "" : "active"}
         onClick={() => setNavBarVisible(true)}
@@ -65,7 +72,7 @@ export const Navbar = ({ children }) => {
               onClick={handelDotMovement}
               id="projects"
             >
-              Projects
+              {t("navbar.projects")}
             </NavbarItem>
           </li>
           <li>
@@ -74,7 +81,7 @@ export const Navbar = ({ children }) => {
               onClick={handelDotMovement}
               id="experience"
             >
-              Experiences
+              {t("navbar.experience")}
             </NavbarItem>
           </li>
           <li className="home_navbar-item">
@@ -95,7 +102,7 @@ export const Navbar = ({ children }) => {
               onClick={handelDotMovement}
               id="about"
             >
-              About
+              {t("navbar.about")}
             </NavbarItem>
           </li>
           <li>
@@ -104,7 +111,7 @@ export const Navbar = ({ children }) => {
               onClick={handelDotMovement}
               id="contact"
             >
-              Contact
+              {t("navbar.contact")}
             </NavbarItem>
           </li>
         </ul>

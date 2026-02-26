@@ -1,8 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import Flip from "gsap/Flip";
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Page } from "../../components/Page";
+import { useLanguage, NavbarContext } from "../../context";
 import { blue, green, yellow } from "../../utils";
 import { Educations, Paragraph, SkillsWrapper, Text } from "./About.styled";
 import { AboutItem } from "./AboutItem";
@@ -14,8 +15,17 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 
 export const About = () => {
+  const { t } = useLanguage();
+  const setPage = useContext(NavbarContext);
   const { ref, inView } = useInView({});
   const [show, setShow] = useState(inView);
+
+  useEffect(() => {
+    if (inView) {
+      setPage("about");
+    }
+  }, [inView]);
+
   useEffect(() => {
     setShow(inView);
   }, [inView]);
@@ -46,41 +56,36 @@ export const About = () => {
   }, []);
   return (
     <div ref={ref}>
-      <Page header="About">
+      <Page header={t("about.header")} id="about">
         <Text>
           <Paragraph>
-            I'm a 17-year-old full-stack developer from Turkey, focused on
-            building clean, scalable systems that power real communities and
-            servers. I love designing interactive experiences, from FiveM game
-            systems and Discord bots to modern web apps.
+            {t("about.bio1")}
             <br />
-            I care about writing maintainable code, experimenting with new
-            technologies and constantly pushing myself to the next level. When
-            I'm not coding, I explore new ideas, learn, and improve my craft.
+            {t("about.bio2")}
           </Paragraph>
           <Educations>
             <AboutItem
               color={blue}
               active
               data={{
-                title: "Dikmen Meslek Lisesi",
-                p: "Self-taught Full-Stack Developer • 17 years old",
+                title: t("about.items.dikmen.title"),
+                p: t("about.items.dikmen.p"),
                 image: meb,
               }}
             />
             <AboutItem
               color={green}
               data={{
-                title: "Game & FiveM Development",
-                p: "Advanced FiveM systems, Lua, JavaScript and server architecture",
+                title: t("about.items.gameDev.title"),
+                p: t("about.items.gameDev.p"),
                 image: pxdev,
               }}
             />
             <AboutItem
               color={yellow}
               data={{
-                title: "Web & Community Projects",
-                p: "React, Next.js, Node.js, databases and Discord bot ecosystems",
+                title: t("about.items.webDev.title"),
+                p: t("about.items.webDev.p"),
                 image: web,
               }}
             />

@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import React, { useContext, useEffect } from "react";
+import { useLanguage } from "../../context";
 import { useInView } from "react-intersection-observer";
 import { NavbarContext } from "../../context";
 import Dog from "./Dog";
@@ -13,6 +14,7 @@ import {
 } from "./Home.styled";
 
 export const Home = () => {
+  const { t } = useLanguage();
   const { ref, inView } = useInView({
     threshold: 1,
   });
@@ -42,11 +44,11 @@ export const Home = () => {
       <TextContainer>
         <Name>Umut Öztürk</Name>
         <Position>
-          <div className="text first" aria-label="Full Stack Developer">
-            {produceSpans("Full Stack Developer")}
+          <div className="text first" aria-label={t("home.role1")}>
+            {produceSpans(t("home.role1"))}
           </div>
-          <div className="text second" aria-label="UI/UX Enthusiast">
-            {produceSpans("UI/UX Enthusiast")}
+          <div className="text second" aria-label={t("home.role2")}>
+            {produceSpans(t("home.role2"))}
           </div>
         </Position>
       </TextContainer>

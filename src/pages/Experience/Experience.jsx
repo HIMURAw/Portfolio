@@ -1,14 +1,33 @@
 import gsap from "gsap";
 import Flip from "gsap/Flip";
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Page } from "../../components/Page";
+import { useLanguage, NavbarContext } from "../../context";
 import { experiences } from "../../data";
 import { useScreenWidth } from "../../hooks";
 import { ExperienceItem } from "./ExperienceItem";
 import { StyledExperienceLayout } from "./ExperienceLayout.styled";
 
+import { useInView } from "react-intersection-observer";
+
 export const Experience = () => {
+  const { t } = useLanguage();
+  const setPage = useContext(NavbarContext);
+  const { ref, inView } = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) setPage("experience");
+  }, [inView]);
+
   const { width } = useScreenWidth();
+
+  // Localized experiences mapping
+  const localizedExperiences = [
+    { ...experiences[0], ...t("experience.items.pxdev") },
+    { ...experiences[1], ...t("experience.items.fivem") },
+    { ...experiences[2], ...t("experience.items.webapi") },
+    { ...experiences[3], ...t("experience.items.discord") },
+  ];
 
   useEffect(() => {
     gsap.registerPlugin(Flip);
@@ -36,12 +55,14 @@ export const Experience = () => {
     });
   }, [width]);
   return (
-    <Page header="Experience">
-      <StyledExperienceLayout>
-        {experiences.map((exp, index) => (
-          <ExperienceItem key={index} data={exp} />
-        ))}
-      </StyledExperienceLayout>
-    </Page>
+    <div ref={ref}>
+      <Page header={t("experience.header")} id="experience">
+        <StyledExperienceLayout>
+          {localizedExperiences.map((exp, index) => (
+            <ExperienceItem key={index} data={exp} />
+          ))}
+        </StyledExperienceLayout>
+      </Page>
+    </div>
   );
 };

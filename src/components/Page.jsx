@@ -30,9 +30,9 @@ const StyledLayout = styled(Grid)`
   }
 `;
 
-export const Page = ({ children, header }) => {
+export const Page = ({ children, header, id }) => {
   return (
-    <StyledLayout id={`${header.toLowerCase()}-page`}>
+    <StyledLayout id={`${(id || header).toLowerCase()}-page`}>
       <>
         <PageHeader>{header.toUpperCase()}</PageHeader>
         {children}
