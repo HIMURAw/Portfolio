@@ -7,9 +7,9 @@ import { blue, green, yellow } from "../../utils";
 import { Educations, Paragraph, SkillsWrapper, Text } from "./About.styled";
 import { AboutItem } from "./AboutItem";
 import Skills from "./SkillBall";
-import dyp from "../../assets/images/dyp.png";
-import highschool from "../../assets/images/highschool.jpeg";
-import sos from "../../assets/images/sos.png";
+import meb from "../../assets/images/meb-logo.png";
+import pxdev from "../../assets/images/pxdev.png";
+import web from "../../assets/images/web.png";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 
@@ -65,7 +65,7 @@ export const About = () => {
               data={{
                 title: "Dikmen Meslek Lisesi",
                 p: "Self-taught Full-Stack Developer • 17 years old",
-                image: dyp,
+                image: meb,
               }}
             />
             <AboutItem
@@ -73,7 +73,7 @@ export const About = () => {
               data={{
                 title: "Game & FiveM Development",
                 p: "Advanced FiveM systems, Lua, JavaScript and server architecture",
-                image: highschool,
+                image: pxdev,
               }}
             />
             <AboutItem
@@ -81,7 +81,7 @@ export const About = () => {
               data={{
                 title: "Web & Community Projects",
                 p: "React, Next.js, Node.js, databases and Discord bot ecosystems",
-                image: sos,
+                image: web,
               }}
             />
           </Educations>
