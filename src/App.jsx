@@ -5,6 +5,8 @@ import { Contact } from "./pages/Contact";
 import { Experience } from "./pages/Experience";
 import { Home } from "./pages/home";
 import { Projects } from "./pages/Projects";
+import { Earth } from "./pages/Earth";
+import { GlobalBackground } from "./components/GlobalBackground";
 import { LanguageProvider, ThemeProvider } from "./context";
 import { GlobalStyles } from "./utils";
 
@@ -13,9 +15,11 @@ function App() {
     <LanguageProvider>
       <ThemeProvider>
         <GlobalStyles />
+        <GlobalBackground />
         <div className="App">
           <Navbar>
             <Home />
+            <Earth />
             <Projects />
             <Experience />
             <About />

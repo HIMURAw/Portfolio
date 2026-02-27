@@ -102,6 +102,15 @@ export const Navbar = ({ children }) => {
             <NavbarItem
               className="navbar-item"
               onClick={handelDotMovement}
+              id="earth"
+            >
+              {t("navbar.earth")}
+            </NavbarItem>
+          </li>
+          <li>
+            <NavbarItem
+              className="navbar-item"
+              onClick={handelDotMovement}
               id="about"
             >
               {t("navbar.about")}
