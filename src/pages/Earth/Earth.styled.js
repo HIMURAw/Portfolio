@@ -9,6 +9,10 @@ export const EarthWrapper = styled.section`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 100svh;
+  }
 `;
 
 export const EarthTitle = styled.h2`
@@ -24,4 +28,11 @@ export const EarthTitle = styled.h2`
   font-weight: 300;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    letter-spacing: 0.3rem;
+    top: 8%;
+  }
 `;
+

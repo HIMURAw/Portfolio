@@ -116,15 +116,6 @@ export const Navbar = ({ children }) => {
               {t("navbar.about")}
             </NavbarItem>
           </li>
-          <li>
-            <NavbarItem
-              className="navbar-item"
-              onClick={handelDotMovement}
-              id="contact"
-            >
-              {t("navbar.contact")}
-            </NavbarItem>
-          </li>
         </ul>
       </StyledNavbar>
       <NavbarContext.Provider value={setCurrentPage}>

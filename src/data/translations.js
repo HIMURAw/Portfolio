@@ -6,7 +6,6 @@ export const translations = {
             experience: "Experiences",
             earth: "World",
             about: "About",
-            contact: "Contact",
         },
         home: {
             role1: "Full Stack Developer",
@@ -90,7 +89,6 @@ export const translations = {
             experience: "Deneyimler",
             earth: "Dünya",
             about: "Hakkımda",
-            contact: "İletişim",
         },
         home: {
             role1: "Full Stack Geliştirici",
