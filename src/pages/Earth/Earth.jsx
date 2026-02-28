@@ -26,7 +26,7 @@ const LocationMarker = ({ isMobile }) => {
     const tipRadius = isMobile ? 1.35 : 1.5;
     const photoSize = isMobile ? 64 : 96;
 
-    // Küre yüzeyindeki nokta (çizgi başlangıcı)
+    // Küre yüzeyindeki nokta (çizgi başlangıcı)x
     const surfacePoint = useMemo(
         () => latLonToVec3(TURKEY_LAT, TURKEY_LON, 1.01),
         []

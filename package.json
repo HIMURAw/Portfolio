@@ -12,6 +12,7 @@
     "@ashthornton/asscroll": "^2.0.11",
     "@react-three/drei": "^9.43.3",
     "@react-three/fiber": "^8.9.1",
+    "framer-motion": "^12.34.3",
     "gsap": "^3.11.3",
     "polished": "^4.2.2",
     "react": "^18.2.0",

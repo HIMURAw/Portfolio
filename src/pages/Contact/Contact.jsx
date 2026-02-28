@@ -16,6 +16,7 @@ import {
   DownloadButton,
   IconButton,
 } from "./Contact.styled";
+import { ResumeModal } from "../../components/ResumeModal";
 
 import { useInView } from "react-intersection-observer";
 
@@ -29,6 +30,7 @@ export const Contact = () => {
   }, [inView, setPage]);
 
   const [form, setFormState] = useState({ name: "", email: "", message: "" });
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   return (
     <div ref={ref}>
       <Page header={t("contact.header")} id="contact">
@@ -95,17 +97,19 @@ export const Contact = () => {
                 </IconButton>
               </a>
 
-              <a
-                href="https://drive.google.com/file/d/1zp5khZY8XGJllzt2D8K0K47yqEk_Lkj5/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+              <DownloadButton
+                bg={red}
+                tooltip="View Resume"
+                onClick={() => setIsResumeModalOpen(true)}
               >
-                <DownloadButton bg={red} tooltip="Download">
-                  <AiOutlineDownload size={40} />
-                  <span>{t("contact.resume")}</span>
-                </DownloadButton>
-              </a>
+                <AiOutlineDownload size={40} />
+                <span>{t("contact.resume")}</span>
+              </DownloadButton>
             </div>
+            <ResumeModal
+              isOpen={isResumeModalOpen}
+              onClose={() => setIsResumeModalOpen(false)}
+            />
             <Button
               disabled={
                 form.email.length <= 0 ||

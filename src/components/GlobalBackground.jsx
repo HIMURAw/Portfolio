@@ -17,7 +17,7 @@ const BackgroundContainer = styled.div`
 export const GlobalBackground = () => {
     return (
         <BackgroundContainer>
-            <Canvas camera={{ position: [0, 0, 50], fov: 75 }} transparent>
+            <Canvas camera={{ position: [0, 0, 50], fov: 75 }}>
                 <Starfield numStars={5000} />
             </Canvas>
         </BackgroundContainer>
