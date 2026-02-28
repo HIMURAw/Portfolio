@@ -6,6 +6,7 @@ export const translations = {
             experience: "Experiences",
             earth: "World",
             about: "About",
+            certificates: "Certificates",
         },
         home: {
             role1: "Full Stack Developer",
@@ -81,6 +82,11 @@ export const translations = {
             resume: "Resume",
             submit: "Submit",
         },
+        certificates: {
+            header: "Certificates",
+            viewPdf: "View PDF",
+            viewCert: "View Certificate",
+        },
     },
     tr: {
         navbar: {
@@ -89,6 +95,7 @@ export const translations = {
             experience: "Deneyimler",
             earth: "Dünya",
             about: "Hakkımda",
+            certificates: "Sertifikalar",
         },
         home: {
             role1: "Full Stack Geliştirici",
@@ -122,7 +129,7 @@ export const translations = {
                 },
                 fivem: {
                     title: "Gelişmiş FiveM ve Oyun Sistemleri Geliştiricisi",
-                    bio: "Lua, JS ve qb-core kullanarak yüksek performanslı oyun sistemleri tasarlayıp uyguluyorum. Stabilite, anti-hile önlemleri ve akıcı oyuncu deneyimine odaklanıyorum.",
+                    bio: "Lua, JS and qb-core kullanarak yüksek performanslı oyun sistemleri tasarlayıp uyguluyorum. Stabilite, anti-hile önlemleri ve akıcı oyuncu deneyimine odaklanıyorum.",
                 },
                 webapi: {
                     title: "Full-Stack Geliştirici",
@@ -163,6 +170,11 @@ export const translations = {
             },
             resume: "Özgeçmiş",
             submit: "Gönder",
+        },
+        certificates: {
+            header: "Sertifikalar",
+            viewPdf: "PDF Görüntüle",
+            viewCert: "Sertifikayı Görüntüle",
         },
     },
 };

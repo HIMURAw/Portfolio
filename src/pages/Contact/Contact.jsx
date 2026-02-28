@@ -6,10 +6,11 @@ import {
   AiOutlineInstagram,
   AiOutlineMail,
 } from "react-icons/ai";
+import { PiDiscordLogo } from "react-icons/pi";
 import { Button, Input, Textarea } from "../../components/form";
 import { Page } from "../../components/Page";
 import { useLanguage, NavbarContext } from "../../context";
-import { blue, green, pink, red, yellow } from "../../utils";
+import { blue, green, pink, red, yellow, discordBlurple } from "../../utils";
 import {
   ContactForm,
   ContactWrapper,
@@ -78,6 +79,26 @@ export const Contact = () => {
               >
                 <IconButton bg={blue}>
                   <AiFillLinkedin size={40} />
+                </IconButton>
+              </a>
+
+              <a
+                href="https://www.instagram.com/umut.ozturk0_/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton bg={pink}>
+                  <AiOutlineInstagram size={40} />
+                </IconButton>
+              </a>
+
+              <a
+                href="https://discord.com/users/768372430631731210"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconButton bg={discordBlurple}>
+                  <PiDiscordLogo size={40} />
                 </IconButton>
               </a>
 
