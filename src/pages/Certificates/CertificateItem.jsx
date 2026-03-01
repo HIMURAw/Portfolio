@@ -1,50 +1,47 @@
 import React from "react";
-import { Button } from "../../components/form";
-import { StyledCertificateCard } from "./Certificates.styled";
+import { useInView } from "react-intersection-observer";
+import { Button } from "../../components/form/";
+import { Cube, Face } from "./Certificates.styled";
 import { useLanguage } from "../../context";
 
-export const CertificateItem = ({ data, onOpenModal }) => {
+export const CertificateItem = ({ data, index, onOpenModal }) => {
+    const { ref, inView } = useInView();
     const { t } = useLanguage();
 
     return (
-        <StyledCertificateCard
-            color={data.color}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-        >
-            <div className="bg-glow" />
-            <div className="card-content">
-                <div className="header">
-                    <div className="logo-wrapper">
-                        <img src={data.logo} alt={data.issuer} />
-                    </div>
-                    <div className="titles">
-                        <h3>{data.title}</h3>
-                        <span>{data.issuer}</span>
+        <Cube ref={ref} className={inView ? "fadeIn" : null} index={index}>
+            <Face className="face-1" image={data.logo}>
+                <div className="img"></div>
+                <div className="content">
+                    <h3 className="text-h">{data.title}</h3>
+                    <p className="text-p">{data.issuer}</p>
+                    <div className="buttons">
+                        {data.link && (
+                            <Button
+                                sm
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    if (data.link.endsWith(".pdf")) {
+                                        onOpenModal(data.link, data.title);
+                                    } else {
+                                        window.open(data.link, "_blank");
+                                    }
+                                }}
+                            >
+                                {data.link.endsWith(".pdf")
+                                    ? t("certificates.viewPdf")
+                                    : t("certificates.viewCert")}
+                            </Button>
+                        )}
                     </div>
                 </div>
-
-                <p>{data.bio}</p>
-
-                <div className="footer">
-                    <span className="date">{data.date}</span>
-                    {data.link && (
-                        <Button
-                            sm
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (data.link.endsWith('.pdf')) {
-                                    onOpenModal(data.link, data.title);
-                                } else {
-                                    window.open(data.link, "_blank");
-                                }
-                            }}
-                        >
-                            {data.link.endsWith('.pdf') ? t("certificates.viewPdf") : t("certificates.viewCert")}
-                        </Button>
-                    )}
-                </div>
-            </div>
-        </StyledCertificateCard>
+            </Face>
+            <Face className="face-2">
+                <div className="text">{data.bio}</div>
+            </Face>
+            <Face className="face-3">
+                <div className="text">{data.title}</div>
+            </Face>
+        </Cube>
     );
 };

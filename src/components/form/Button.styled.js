@@ -13,7 +13,7 @@ export const Button = styled.button`
   min-height: 40px;
   border: 3px solid ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   border-radius: 0.5rem;
-  color: ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
+  color: ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   box-shadow: 8px 8px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   cursor: pointer;
   transition: all 0.1s ease-in;
@@ -24,19 +24,19 @@ export const Button = styled.button`
   &:hover {
     background-color: ${(props) => (props.bg ? props.bg["70"] : props.theme.secondary)};
     box-shadow: 10px 10px 0
-      ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
+      ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   }
 
   &:active,
   &:focus {
     background-color: ${(props) => (props.bg ? props.bg["80"] : props.theme.primary)};
-    box-shadow: 4px 4px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
+    box-shadow: 4px 4px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   }
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-    box-shadow: 2px 2px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.text)};
+    box-shadow: 2px 2px 0 ${(props) => (props.bg ? props.bg["00"] : props.theme.brutal)};
   }
 `;
 

@@ -18,8 +18,8 @@ const SwitcherContainer = styled.div`
 `;
 
 const LanguageButton = styled.button`
-  background: ${(props) => (props.active ? props.theme.glassBorder : "transparent")};
-  color: ${(props) => (props.active ? props.theme.text : props.theme.textSecondary)};
+  background: ${(props) => (props.active ? props.theme.primary : "transparent")};
+  color: ${(props) => (props.active ? props.theme.brutal : props.theme.textSecondary)};
   border: none;
   border-radius: 20px;
   padding: 8px 15px;
@@ -31,7 +31,7 @@ const LanguageButton = styled.button`
 
   &:hover {
     color: ${(props) => props.theme.text};
-    background: ${(props) => props.theme.glassBorder};
+    background: ${(props) => props.theme.glass};
   }
 `;
 

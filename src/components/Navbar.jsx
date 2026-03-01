@@ -67,65 +67,48 @@ export const Navbar = ({ children }) => {
         <CloseButton onClick={() => setNavBarVisible(false)}>
           <AiOutlineClose size={30} />
         </CloseButton>
-        <ul>
-          <li>
-            <NavbarItem
-              className="navbar-item"
-              onClick={handelDotMovement}
-              id="projects"
-            >
-              {t("navbar.projects")}
-            </NavbarItem>
-          </li>
-          <li>
-            <NavbarItem
-              className="navbar-item"
-              onClick={handelDotMovement}
-              id="experience"
-            >
-              {t("navbar.experience")}
-            </NavbarItem>
-          </li>
-          <li>
-            <NavbarItem
-              className="navbar-item"
-              onClick={handelDotMovement}
-              id="certificates"
-            >
-              {t("navbar.certificates")}
-            </NavbarItem>
-          </li>
-          <li className="home_navbar-item">
-            <NavbarItem
-              className="navbar-item"
-              onClick={(e) => {
-                handelDotMovement({ target: document.getElementById("home") });
-              }}
-              id="home"
-            >
-              <HIMURA />
-              <div className="dot" ref={activeDot} />
-            </NavbarItem>
-          </li>
-          <li>
-            <NavbarItem
-              className="navbar-item"
-              onClick={handelDotMovement}
-              id="earth"
-            >
-              {t("navbar.earth")}
-            </NavbarItem>
-          </li>
-          <li>
-            <NavbarItem
-              className="navbar-item"
-              onClick={handelDotMovement}
-              id="about"
-            >
-              {t("navbar.about")}
-            </NavbarItem>
-          </li>
-        </ul>
+        <div className="nav-left">
+          <NavbarItem
+            className="navbar-item"
+            onClick={handelDotMovement}
+            id="projects"
+          >
+            {t("navbar.projects")}
+          </NavbarItem>
+          <NavbarItem
+            className="navbar-item"
+            onClick={handelDotMovement}
+            id="experience"
+          >
+            {t("navbar.experience")}
+          </NavbarItem>
+        </div>
+        <NavbarItem
+          className="navbar-item home_navbar-item"
+          onClick={(e) => {
+            handelDotMovement({ target: document.getElementById("home") });
+          }}
+          id="home"
+        >
+          <HIMURA />
+          <div className="dot" ref={activeDot} />
+        </NavbarItem>
+        <div className="nav-right">
+          <NavbarItem
+            className="navbar-item"
+            onClick={handelDotMovement}
+            id="certificates"
+          >
+            {t("navbar.certificates")}
+          </NavbarItem>
+          <NavbarItem
+            className="navbar-item"
+            onClick={handelDotMovement}
+            id="about"
+          >
+            {t("navbar.about")}
+          </NavbarItem>
+        </div>
       </StyledNavbar>
       <NavbarContext.Provider value={setCurrentPage}>
         {children}

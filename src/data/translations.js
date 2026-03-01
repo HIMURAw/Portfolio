@@ -86,6 +86,7 @@ export const translations = {
             header: "Certificates",
             viewPdf: "View PDF",
             viewCert: "View Certificate",
+            clickToView: "Click to View",
         },
     },
     tr: {
@@ -175,6 +176,7 @@ export const translations = {
             header: "Sertifikalar",
             viewPdf: "PDF Görüntüle",
             viewCert: "Sertifikayı Görüntüle",
+            clickToView: "Görüntülemek için tıkla",
         },
     },
 };

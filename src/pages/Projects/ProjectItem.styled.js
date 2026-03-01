@@ -130,7 +130,7 @@ export const Face = styled.div`
         }
         .buttons {
           justify-content: space-around;
-          button {
+          button {View PDF
             transform: scale(0.8);
           }
         }

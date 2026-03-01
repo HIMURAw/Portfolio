@@ -27,7 +27,7 @@ export const darkTheme = {
     glassBorder: "rgba(255,255,255,0.1)",
     shadow: "#000000",
     brutal: "#000000",
-    primary: blue["60"],
+    primary: blue["50"],
     secondary: pink["60"],
     success: green["60"],
     warning: yellow["60"],
