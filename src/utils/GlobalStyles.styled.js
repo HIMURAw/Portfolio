@@ -27,7 +27,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: ${(props) => props.theme.text};
-  background-color: ${(props) => props.theme.background};
+  background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 `;

@@ -15,6 +15,13 @@ const SwitcherContainer = styled.div`
   border-radius: 30px;
   border: 1px solid ${(props) => props.theme.glassBorder};
   box-shadow: 0 4px 15px ${(props) => props.theme.shadow};
+
+  @media screen and (max-width: 720px) {
+    top: 20px;
+    left: 12px;
+    right: auto;
+    padding: 3px;
+  }
 `;
 
 const LanguageButton = styled.button`

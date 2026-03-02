@@ -45,11 +45,12 @@ export const MenuButton = styled.button`
   cursor: pointer;
   position: fixed;
   z-index: 101;
-  top: 0;
-  left: 0;
+  top: 15px;
+  right: 15px;
+  left: auto;
   padding: 0.5rem;
   transition: 0.2s ease-in-out;
-  transform: translateX(-150%);
+  transform: translateX(150%);
   &.active {
     transform: translateX(0%);
   }

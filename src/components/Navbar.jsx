@@ -108,6 +108,9 @@ export const Navbar = ({ children }) => {
           >
             {t("navbar.about")}
           </NavbarItem>
+          <div className="mobile-theme-switcher">
+            <ThemeSwitcher navbar />
+          </div>
         </div>
       </StyledNavbar>
       <NavbarContext.Provider value={setCurrentPage}>

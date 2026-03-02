@@ -30,15 +30,17 @@ export const StyledNavbar = styled.nav`
   @media screen and (max-width: 720px) {
     left: 0;
     transform: translateX(-150%);
+    visibility: hidden;
+    pointer-events: none;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
     width: 70vw;
     height: 100%;
     background-color: ${(props) => props.theme.glass};
-    backdrop-filter: blur(10px);
-    transition: transform 0.2s ease-in-out;
-    padding: 2rem 1rem;
+    backdrop-filter: none;
+    transition: all 0.2s ease-in-out;
+    padding: 6rem 1rem 2rem 1rem;
 
     .nav-left,
     .nav-right {
@@ -53,6 +55,19 @@ export const StyledNavbar = styled.nav`
 
     &.active {
       transform: translateX(0%);
+      visibility: visible;
+      pointer-events: all;
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  .mobile-theme-switcher {
+    display: none;
+    @media screen and (max-width: 720px) {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      margin-top: 1rem;
     }
   }
 `;

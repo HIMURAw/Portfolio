@@ -8,7 +8,10 @@ export const HomeWrapper = styled.main`
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1rem;
   @media screen and (max-width: 920px) {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
+    height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 20px;
   }
 `;
 

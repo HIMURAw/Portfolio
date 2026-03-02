@@ -11,7 +11,7 @@ const BackgroundContainer = styled.div`
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  background-color: transparent;
+  background-color: ${(props) => props.theme.background};
 `;
 
 export const GlobalBackground = () => {
