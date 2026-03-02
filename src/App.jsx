@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
@@ -10,6 +11,7 @@ import { Earth } from "./pages/Earth";
 import { GlobalBackground } from "./components/GlobalBackground";
 import { LanguageProvider, ThemeProvider } from "./context";
 import { GlobalStyles } from "./utils";
+import AdminApp from "./admin/AdminApp";
 
 function App() {
   return (
@@ -18,15 +20,23 @@ function App() {
         <GlobalStyles />
         <GlobalBackground />
         <div className="App">
-          <Navbar>
-            <Home />
-            <Earth />
-            <About />
-            <Projects />
-            <Experience />
-            <Certificates />
-            <Contact />
-          </Navbar>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Navbar>
+                  <Home />
+                  <Earth />
+                  <About />
+                  <Projects />
+                  <Experience />
+                  <Certificates />
+                  <Contact />
+                </Navbar>
+              }
+            />
+            <Route path="/admin/*" element={<AdminApp />} />
+          </Routes>
         </div>
       </ThemeProvider>
     </LanguageProvider>
@@ -34,3 +44,4 @@ function App() {
 }
 
 export default App;
+

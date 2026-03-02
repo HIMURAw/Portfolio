@@ -32,13 +32,47 @@ export const Contact = () => {
 
   const [form, setFormState] = useState({ name: "", email: "", message: "" });
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+  const [status, setStatus] = useState(null); // 'success' or 'error'
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (form.email.length <= 0 || form.name.length <= 0 || form.message.length <= 0) return;
+
+    try {
+      // Get existing messages or initialize
+      const stored = localStorage.getItem('admin_messages');
+      const messages = stored ? JSON.parse(stored) : [];
+
+      const newMessage = {
+        key: Date.now().toString(),
+        name: form.name,
+        email: form.email,
+        subject: "Web Sitesi İletişim",
+        message: form.message,
+        date: new Date().toISOString().split('T')[0],
+        read: false
+      };
+
+      const updatedMessages = [newMessage, ...messages];
+      localStorage.setItem('admin_messages', JSON.stringify(updatedMessages));
+
+      setStatus('success');
+      setFormState({ name: "", email: "", message: "" });
+
+      // Reset status after 5 seconds
+      setTimeout(() => setStatus(null), 5000);
+    } catch (error) {
+      console.error("Message storage error:", error);
+      setStatus('error');
+    }
+  };
+
   return (
     <div ref={ref}>
       <Page header={t("contact.header")} id="contact">
         <ContactWrapper>
           <ContactForm
-            action="https://formspree.io/f/movdrzbd"
-            method="POST"
+            onSubmit={handleSubmit}
             name="contact"
             id="contactform"
           >
@@ -131,19 +165,31 @@ export const Contact = () => {
               isOpen={isResumeModalOpen}
               onClose={() => setIsResumeModalOpen(false)}
             />
-            <Button
-              disabled={
-                form.email.length <= 0 ||
-                form.name.length <= 0 ||
-                form.message.length <= 0
-              }
-              onClick={() => {
-                document.forms["contact"].submit();
-              }}
-            >
-              {t("contact.submit")}
-            </Button>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", width: "100%" }}>
+              {status === 'success' && (
+                <div style={{ color: green, textAlign: "center", fontWeight: "bold" }}>
+                  {t("contact.success") || "Mesajınız başarıyla iletildi!"}
+                </div>
+              )}
+              {status === 'error' && (
+                <div style={{ color: red, textAlign: "center", fontWeight: "bold" }}>
+                  {t("contact.error") || "Bir hata oluştu. Lütfen tekrar deneyin."}
+                </div>
+              )}
+              <Button
+                disabled={
+                  form.email.length <= 0 ||
+                  form.name.length <= 0 ||
+                  form.message.length <= 0 ||
+                  status === 'success'
+                }
+                onClick={handleSubmit}
+              >
+                {status === 'success' ? "✓" : t("contact.submit")}
+              </Button>
+            </div>
           </div>
+
         </ContactWrapper>
       </Page>
     </div>
