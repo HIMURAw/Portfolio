@@ -46,6 +46,8 @@ export const HIMURA = () => {
         cursor: "pointer",
         position: "relative",
         display: "inline-block",
+        marginRight: "20px",
+        marginLeft: "20px",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

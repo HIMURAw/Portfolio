@@ -71,17 +71,18 @@ export const Navbar = ({ children }) => {
           <NavbarItem
             className="navbar-item"
             onClick={handelDotMovement}
-            id="projects"
+            id="about"
           >
-            {t("navbar.projects")}
+            {t("navbar.about")}
           </NavbarItem>
           <NavbarItem
             className="navbar-item"
             onClick={handelDotMovement}
-            id="experience"
+            id="projects"
           >
-            {t("navbar.experience")}
+            {t("navbar.projects")}
           </NavbarItem>
+
         </div>
         <NavbarItem
           className="navbar-item home_navbar-item"
@@ -97,16 +98,16 @@ export const Navbar = ({ children }) => {
           <NavbarItem
             className="navbar-item"
             onClick={handelDotMovement}
-            id="certificates"
+            id="experience"
           >
-            {t("navbar.certificates")}
+            {t("navbar.experience")}
           </NavbarItem>
           <NavbarItem
             className="navbar-item"
             onClick={handelDotMovement}
-            id="about"
+            id="certificates"
           >
-            {t("navbar.about")}
+            {t("navbar.certificates")}
           </NavbarItem>
           <div className="mobile-theme-switcher">
             <ThemeSwitcher navbar />

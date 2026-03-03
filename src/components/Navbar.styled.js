@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const StyledNavbar = styled.nav`
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 1rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   z-index: 100;
 
   .nav-left,
