@@ -165,7 +165,7 @@ export const Contact = () => {
               isOpen={isResumeModalOpen}
               onClose={() => setIsResumeModalOpen(false)}
             />
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px", width: "100%" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", height: "fit-content" }}>
               {status === 'success' && (
                 <div style={{ color: green, textAlign: "center", fontWeight: "bold" }}>
                   {t("contact.success") || "Mesajınız başarıyla iletildi!"}
