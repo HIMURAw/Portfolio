@@ -1,0 +1,667 @@
+.github-section {
+  max-width: 1100px;
+  width: var(--cWidth);
+  margin: 120px auto 50px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.github-section h2 {
+  font-size: 70px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.github-section h2 span {
+  color: var(--accentColor);
+}
+
+.github-subtitle {
+  text-align: center;
+  color: #adacac;
+  font-size: 15px;
+  margin-bottom: 50px;
+  letter-spacing: 0.5px;
+}
+
+/* Dashboard cards layout */
+.github-grid-row-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.github-grid-row-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 1025px) {
+  .github-grid-row-1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .github-grid-row-2 {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Base dashboard card styling */
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 380px;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.dashboard-card:hover {
+  border-color: rgba(194, 164, 255, 0.2);
+  box-shadow: 0 10px 30px -15px rgba(194, 164, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.dashboard-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+  border-left: 3px solid var(--accentColor);
+  padding-left: 12px;
+  text-transform: uppercase;
+}
+
+/* Card 1: GitHub Profile Card */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.profile-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid var(--accentColor);
+  box-shadow: 0 0 10px rgba(194, 164, 255, 0.3);
+  object-fit: cover;
+}
+
+.profile-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+}
+
+.profile-username {
+  font-size: 13px;
+  color: var(--accentColor);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: #adacac;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-icon {
+  font-size: 16px;
+}
+
+.stat-icon.repos { color: #58a6ff; }
+.stat-icon.followers { color: #3fb950; }
+.stat-icon.stars { color: #e3b341; }
+.stat-icon.pulls { color: #bc8cff; }
+
+.stat-val {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stat-label {
+  display: block;
+  font-size: 9px;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Card 2: Top Languages Card (Donut Chart) */
+.languages-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .languages-body {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .languages-body {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.donut-chart-container {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.circular-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.03);
+  stroke-width: 3.2;
+}
+
+.circle-slice {
+  fill: none;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.percentage {
+  fill: #fff;
+  font-size: 6.5px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.percentage-label {
+  fill: #adacac;
+  font-size: 3.5px;
+  font-weight: 500;
+  text-anchor: middle;
+  letter-spacing: 0.2px;
+}
+
+.languages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 160px;
+}
+
+.lang-list-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #adacac;
+}
+
+.lang-color-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.lang-name-text {
+  flex-grow: 1;
+}
+
+.lang-percent-text {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Card 3: Habits & Streaks Card */
+.habits-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.streak-stats-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.streak-stat-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.streak-stat-box:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.streak-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.streak-icon.fire-glow {
+  color: #ff8484;
+  filter: drop-shadow(0 0 6px rgba(255, 132, 132, 0.4));
+}
+
+.streak-icon.trophy-glow {
+  color: #ffd56b;
+  filter: drop-shadow(0 0 6px rgba(255, 213, 107, 0.4));
+}
+
+.streak-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.streak-label {
+  font-size: 10px;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.habits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.habit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.habit-icon {
+  font-size: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.habit-icon.moon-glow {
+  color: #c2a4ff;
+  filter: drop-shadow(0 0 4px rgba(194, 164, 255, 0.3));
+}
+
+.habit-icon.sun-glow {
+  color: #ffd56b;
+  filter: drop-shadow(0 0 4px rgba(255, 213, 107, 0.3));
+}
+
+.habit-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.habit-desc {
+  display: block;
+  font-size: 11px;
+  color: #adacac;
+  line-height: 1.4;
+}
+
+/* Card 4: Featured Repos (Detailed Layout) */
+.github-featured-repos {
+  min-height: auto;
+}
+
+.featured-repos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .featured-repos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.featured-repo-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  min-height: 140px;
+}
+
+.featured-repo-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(194, 164, 255, 0.3);
+  box-shadow: 0 8px 24px -10px rgba(194, 164, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.repo-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.repo-title-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+}
+
+.featured-repo-card:hover .repo-title-text {
+  color: var(--accentColor);
+}
+
+.repo-link-arrow {
+  font-size: 12px;
+  color: #8b949e;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.featured-repo-card:hover .repo-link-arrow {
+  color: #fff;
+  transform: translate(1px, -1px);
+}
+
+.repo-description-text {
+  font-size: 13px;
+  color: #adacac;
+  line-height: 1.5;
+  margin: 0 0 18px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repo-footer-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.repo-lang-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.repo-lang-indicator.lua { background-color: #0255a3; }
+.repo-lang-indicator.c\# { background-color: #854cc7; }
+.repo-lang-indicator.typescript { background-color: #3178c6; }
+.repo-lang-indicator.javascript { background-color: #f7df1e; }
+.repo-lang-indicator.css { background-color: #563d7c; }
+.repo-lang-indicator.html { background-color: #e34f26; }
+.repo-lang-indicator.python { background-color: #3572a5; }
+
+.repo-lang-name {
+  color: #adacac;
+  margin-right: auto;
+}
+
+.repo-counts {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.repo-counts span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+/* Card 5: Achievements Card */
+.github-achievements-card {
+  min-height: auto;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  flex-grow: 1;
+  align-content: space-between;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.achievement-badge {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.achievement-badge:hover {
+  border-color: var(--badge-color);
+  box-shadow: 0 4px 15px -5px var(--badge-color);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.badge-icon-wrap {
+  font-size: 20px;
+  color: var(--badge-color);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.achievement-badge:hover .badge-icon-wrap {
+  transform: rotate(15deg) scale(1.1);
+  background: var(--badge-color);
+  color: #0c080f;
+}
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.badge-desc {
+  font-size: 11px;
+  color: #adacac;
+  margin-top: 1px;
+}
+
+/* Contribution Calendar */
+.github-calendar-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.github-calendar-box h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.calendar-grid-wrapper {
+  overflow-x: auto;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.calendar-grid-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.calendar-grid-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+.calendar-grid-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.calendar-grid {
+  display: flex;
+  gap: 3px;
+  width: max-content;
+}
+
+.calendar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.calendar-day {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  transform: scale(1.3);
+  z-index: 2;
+  box-shadow: 0 0 6px var(--accentColor);
+}
+
+/* Purple glowing contribution levels */
+.level-0 { background: #120e16; }
+.level-1 { background: rgba(194, 164, 255, 0.2); }
+.level-2 { background: rgba(194, 164, 255, 0.45); }
+.level-3 { background: rgba(194, 164, 255, 0.7); }
+.level-4 { 
+  background: var(--accentColor);
+  box-shadow: 0 0 4px rgba(194, 164, 255, 0.4);
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #adacac;
+}
+
+.legend-box {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.github-loading {
+  text-align: center;
+  color: #adacac;
+  padding: 100px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 1024px) {
+  .github-section h2 {
+    font-size: 40px;
+  }
+  .dashboard-card {
+    min-height: auto;
+  }
+}
