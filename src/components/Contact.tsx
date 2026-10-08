@@ -180,16 +180,24 @@ const Contact = () => {
             <h2>
               {language === "tr" ? (
                 <>
-                  <span>Umut Öztürk</span> tarafından <br /> Tasarlandı ve Geliştirildi
+                  <span>Umut Öztürk</span> tarafından <br /> Geliştirildi
                 </>
               ) : (
                 <>
-                  Designed and Developed <br /> by <span>Umut Öztürk</span>
+                  Developed <br /> by <span>Umut Öztürk</span>
                 </>
               )}
             </h2>
             <h5>
-              <MdCopyright /> 2026
+              <MdCopyright /> 2026 ·{" "}
+              {language === "tr" ? "Tasarım ve 3D: " : "Design & 3D: "}
+              <a
+                href="https://github.com/red1-for-hek/portfolio-website"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Moncy Yohannan
+              </a>
             </h5>
           </div>
         </div>
