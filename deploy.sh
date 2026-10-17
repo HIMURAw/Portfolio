@@ -4,5 +4,5 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 npm run build
-rsync -az --delete --chmod=D755,F644 dist/ umutozturk-vds:/var/www/umutozturk.me/
+rsync -az --delete --exclude 'm/' --chmod=D755,F644 dist/ umutozturk-vds:/var/www/umutozturk.me/
 curl -s -o /dev/null -w "umutozturk.me -> %{http_code}\n" https://umutozturk.me/
