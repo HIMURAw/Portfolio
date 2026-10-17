@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kanal Rapor — internal channel tool</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 16px;color:#222;background:#fff}h1{font-size:1.6em}code{background:#f2f2f2;padding:1px 4px;border-radius:3px}</style>
+</head><body>
+<h1>Kanal Rapor</h1>
+<p><strong>Private, single-user tool</strong> used only by Umut Öztürk to manage his own YouTube channel
+<a href="https://www.youtube.com/@komedigozlugu">Komedi Gözlüğü</a>. It is not a public service and has no other users.</p>
+<h2>What it does</h2>
+<ul>
+<li>Uploads the owner's own original Shorts to his own channel (<code>videos.insert</code>) as private with a scheduled
+<code>publishAt</code> time (09:00, 15:00, 21:00 Turkey time), using titles written by the owner.</li>
+<li>Reads the owner's own channel statistics (YouTube Data API v3, YouTube Analytics API) to measure video performance.</li>
+</ul>
+<h2>How it works</h2>
+<p>Runs as a command-line script on the owner's computer. Authorization is OAuth 2.0 with the owner's Google account only.
+No other channel's or user's data is accessed; nothing is shared with third parties; data stays on the owner's computer.</p>
+<p>This tool uses YouTube API Services. By using it you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>.
+See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and this tool's <a href="/gizlilik/">privacy policy</a>.</p>
+<p>Contact: umutozturk.mee@gmail.com</p>
+</body></html>
