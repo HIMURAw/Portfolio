@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İndir · Kapabil</title>
+<meta name="theme-color" content="#5F3BF2">
+<meta property="og:title" content="Kapabil · İndir">
+<meta property="og:image" content="https://umutozturk.me/kapabil/img/kapibara.webp">
+<link rel="icon" href="../img/ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root { --zemin:#FFFAF4; --kart:#fff; --yazi:#2A1F45; --soluk:#6B6280; --mor:#5F3BF2; --mor-acik:#E9E3FF; }
+  @media (prefers-color-scheme: dark) { :root { --zemin:#1D1633; --kart:#271E45; --yazi:#F1ECFF; --soluk:#A99FC4; --mor:#A894FF; --mor-acik:#322758; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--zemin); color:var(--yazi); font:17px/1.55 "Bricolage Grotesque", system-ui, sans-serif; }
+  main { max-width:460px; margin:0 auto; padding:28px 16px 48px; text-align:center; }
+  .pah { clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px); }
+  .kapibara { width:200px; height:auto; animation:nefes 3.2s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes nefes { 50% { transform:scale(1.03) translateY(-4px); } }
+  @media (prefers-reduced-motion: reduce) { .kapibara { animation:none; } }
+  h1 { font-size:28px; line-height:1.15; margin:12px 0 8px; font-weight:800; }
+  .soluk { color:var(--soluk); }
+  .kod { font-size:44px; font-weight:800; letter-spacing:8px; color:var(--mor); background:var(--kart); padding:12px 8px; margin:18px 0; }
+  .dugme { display:block; padding:16px; text-decoration:none; margin:10px 0; border:0; width:100%; font:inherit; font-weight:800; cursor:pointer; }
+  .dolu { background:var(--mor); color:#fff; }
+  @media (prefers-color-scheme: dark) { .dolu { color:#1D1633; } }
+  .cizgi { background:var(--mor-acik); color:var(--mor); }
+  ol { text-align:left; padding-left:22px; } li { margin:8px 0; }
+  a { color:var(--mor); }
+</style>
+</head>
+<body><main>
+<img class="kapibara" src="../img/kapibara.webp" alt="" width="200" height="200">
+<h1>Kapabil test sürümü</h1>
+<p class="soluk">Google Play'e çıkana kadar Android için doğrudan indirme. iPhone sürümü henüz yok.</p>
+<a class="dugme dolu pah" href="kapabil.apk" download>APK'yı indir</a>
+<ol>
+<li>İnen <b>kapabil.apk</b> dosyasına dokun.</li>
+<li>Telefon izin isterse <b>Bu kaynaktan yüklemeye izin ver</b>'i aç.</li>
+<li><b>Yükle</b>'ye bas. Eski sürüm varsa üstüne kurulur, ilerlemen kalır.</li>
+</ol>
+<p class="soluk" style="margin-top:28px;font-size:14px"><a href="../">Kapabil</a> · <a href="../gizlilik.html">Gizlilik</a></p>
+</main></body></html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kapabil · 5 dakikada YKS</title>
+<meta name="description" content="Can yok, soru sınırı yok. 5 dakikalık YKS bölümleri, kupa ligi ve arkadaşınla canlı düello. Kapibara seninle çalışır.">
+<meta property="og:title" content="Kapabil · 5 dakikada YKS">
+<meta property="og:description" content="Can yok, soru sınırı yok. 5 dakikalık bölümler, lig ve canlı düello.">
+<meta property="og:image" content="https://umutozturk.me/kapabil/img/kapibara.webp">
+<meta name="theme-color" content="#5F3BF2">
+<link rel="icon" href="img/ikon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zemin: #FFFAF4; --kart: #FFFFFF; --yazi: #2A1F45; --soluk: #6B6280;
+    --mor: #5F3BF2; --mor-acik: #E9E3FF; --mandalina: #F59A3C; --cizgi: #E4DCF7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --zemin: #1D1633; --kart: #271E45; --yazi: #F1ECFF; --soluk: #A99FC4; --mor: #A894FF; --mor-acik: #322758; --cizgi: #3A2F5C; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--zemin); color: var(--yazi); font: 17px/1.55 "Bricolage Grotesque", system-ui, sans-serif; }
+  a { color: var(--mor); }
+  .ic { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  /* Kapabil'in 45° kesik köşesi */
+  .pah { clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px); }
+
+  header.ust { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .marka { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; color: var(--yazi); text-decoration: none; }
+  .marka img { width: 36px; height: 36px; border-radius: 9px; }
+
+  .kahraman { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: center; padding: 28px 0 56px; }
+  h1 { font-size: clamp(40px, 7vw, 72px); line-height: 1.02; letter-spacing: -1.5px; margin: 0 0 18px; font-weight: 800; }
+  h1 em { font-style: normal; color: var(--mor); }
+  .soz { font-size: clamp(19px, 2.4vw, 24px); font-weight: 700; margin: 0 0 10px; }
+  .soz span { background: var(--mandalina); color: #2A1F45; padding: 2px 10px; }
+  .alt { color: var(--soluk); margin: 0 0 28px; max-width: 34ch; }
+  .dugmeler { display: flex; flex-wrap: wrap; gap: 12px; }
+  .dugme { display: inline-flex; align-items: center; gap: 10px; padding: 15px 22px; font-weight: 700; text-decoration: none; font-size: 17px; }
+  .dugme.dolu { background: var(--mor); color: #fff; }
+  @media (prefers-color-scheme: dark) { .dugme.dolu { color: #1D1633; } }
+  .dugme.cizgi { background: var(--mor-acik); color: var(--mor); }
+  .dugme[aria-disabled="true"] { opacity: .55; cursor: default; }
+  .kapibara { width: 100%; max-width: 420px; justify-self: center; animation: nefes 3.2s ease-in-out infinite; transform-origin: 50% 90%; }
+  @keyframes nefes { 50% { transform: scale(1.03) translateY(-4px); } }
+
+  .ekranlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 8px 0 64px; }
+  .ekran { background: var(--kart); padding: 14px; text-align: center; }
+  .ekran img { width: 100%; display: block; border-radius: 18px; aspect-ratio: 390 / 760; object-fit: cover; object-position: top; background: #1D1633; }
+  .ekran p { margin: 12px 4px 4px; font-weight: 700; }
+
+  .ozellikler { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-bottom: 72px; }
+  .ozellik { background: var(--kart); padding: 22px 20px; }
+  .ozellik b { display: block; font-size: 19px; margin-bottom: 6px; }
+  .ozellik span { color: var(--soluk); font-size: 16px; }
+  .rozet { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 12px; font-size: 22px; color: #fff; }
+
+  footer { border-top: 1px solid var(--cizgi); padding: 24px 0 40px; color: var(--soluk); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+  @media (max-width: 820px) {
+    .kahraman { grid-template-columns: 1fr; padding-top: 8px; }
+    .kapibara { max-width: 260px; order: -1; }
+    .ekranlar { grid-template-columns: repeat(3, 72vw); overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+    .ekran { scroll-snap-align: center; }
+    .ozellikler { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) { .ozellikler { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .kapibara { animation: none; } }
+</style>
+</head>
+<body>
+<div class="ic">
+  <header class="ust">
+    <a class="marka" href="./"><img src="img/ikon.png" alt="">kapabil</a>
+    <a href="indir/">İndir</a>
+  </header>
+
+  <section class="kahraman">
+    <div>
+      <h1>YKS'ye <em>5 dakikada</em> bir adım.</h1>
+      <p class="soz"><span>Can yok. Soru sınırı yok.</span></p>
+      <p class="alt">Reels yerine 10 soruluk bir bölüm. Kupa topla, arkadaşına canlı düello at, kapibara seninle çalışsın.</p>
+      <div class="dugmeler">
+        <a class="dugme dolu pah" href="indir/">Test sürümünü indir</a>
+        <span class="dugme cizgi pah" aria-disabled="true">Google Play · yakında</span>
+      </div>
+    </div>
+    <img class="kapibara" src="img/kapibara.webp" alt="Kollarını açmış mor kapibara" width="512" height="512">
+  </section>
+
+  <section class="ekranlar" aria-label="Uygulamadan ekranlar">
+    <figure class="ekran pah" style="margin:0"><img src="img/yol.webp" alt="Yol: üniteler ve bölümler" loading="lazy"><p>Kolaydan zora, ünite ünite</p></figure>
+    <figure class="ekran pah" style="margin:0"><img src="img/neden.webp" alt="Yanlış cevapta seçilen şıkkın neden yanlış olduğu" loading="lazy"><p>Hatanı söyler, çözümü gösterir</p></figure>
+    <figure class="ekran pah" style="margin:0"><img src="img/sezon.webp" alt="Kapibara Sezonu: ayın kıyafeti ve görevler" loading="lazy"><p>Her ay yeni kıyafet</p></figure>
+  </section>
+
+  <section class="ozellikler">
+    <div class="ozellik pah"><div class="rozet pah" style="background:#5F3BF2">✓</div><b>Neden yanlış?</b><span>Seçtiğin şıkkın neden yanlış olduğu ve adım adım çözüm.</span></div>
+    <div class="ozellik pah"><div class="rozet pah" style="background:#F59A3C">↺</div><b>Yanlışlarım</b><span>Yanlış yaptığın sorular unutmadan önce geri gelir.</span></div>
+    <div class="ozellik pah"><div class="rozet pah" style="background:#127A50">★</div><b>Seri</b><span>Her gün bir bölüm. Ayda 2 gün kaçırma hakkın var.</span></div>
+    <div class="ozellik pah"><div class="rozet pah" style="background:#D8574B">◎</div><b>Çalışma takibi</b><span>Kitaptan çözdüklerin, denemelerin, pomodoro ve program.</span></div>
+  </section>
+
+  <footer>
+    <span>Kapabil · Div10</span>
+    <a href="gizlilik.html">Gizlilik</a>
+    <a href="kosullar.html">Kullanım şartları</a>
+    <a href="kurallar.html">Topluluk kuralları</a>
+    <a href="hesap-silme.html">Hesap silme</a>
+  </footer>
+</div>
+</body>
+</html>
