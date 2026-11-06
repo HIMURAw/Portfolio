@@ -1,0 +1,28 @@
+# Umut Öztürk
+
+> Umut Öztürk (born 26 July 2009) is a full-stack developer based in Ankara, Turkey. He is in his final year at Dikmen Vocational High School (graduating 2027) and has worked as a software intern at Sağlık Bank three days a week since September 2026. He builds web, mobile and desktop software and takes it all the way to release. Website: https://umutozturk.me (Turkish) and https://umutozturk.me/en/ (English). GitHub: https://github.com/HIMURAw. Contact: umutozturk.mee@gmail.com.
+
+## Projects
+
+- [Prokayit](https://prokayit.com): Field records platform for maintenance companies (fire detection, medical devices, industrial machines). Work can't start unless the technician is on site, an inspection can't close until the device tag is scanned, and a report signed by both sides is emailed to the customer. Around 110 pages, 143 API endpoints, 60 database tables and 6 user roles, built solo by Umut during his internship. Live. Stack: Next.js, MySQL, Prisma.
+- [Kapabil](https://umutozturk.me/kapabil/): A five-minute-a-day mobile game for Turkey's university entrance exam (YKS). Topics are split into short levels on a path; leagues, duels and streaks build a daily habit; the mascot is a capybara. Android release in progress. Stack: React Native, Expo, TypeScript.
+- [Glass desktop (himura-desktop)](https://github.com/HIMURAw/himura-desktop): Umut's own Linux desktop environment for GNOME: a frosted-glass dock, a dynamic island, widgets, window snapping and a file manager, plus a "Hey Harvis" voice assistant running on the Intel NPU. Open source; his daily driver.
+- [PIXEON](https://github.com/HIMURAw/PIXEON): A game and console e-commerce store with search, coupons, order tracking, support tickets, a 3D product viewer and a role-based admin panel with an audit log. Stack: Next.js, Drizzle, MySQL, Three.js.
+
+## What he builds
+
+- Web applications (dashboards, stores, booking systems) with Next.js and MySQL, through to launch
+- Mobile apps for Android and iOS from one codebase with Expo
+- Linux desktop extensions and small utilities
+- Automation: bots, automatic reports, local AI pipelines
+
+## Tools
+
+TypeScript, React, Next.js, Node.js, MySQL, Prisma, Drizzle, React Native, Expo, Python, Linux, GNOME Shell
+
+## Certificates
+
+- Voice Assistants with Large Language Models workshop
+- Full-Stack Web Development (Udemy)
+- Node.js
+- English Placement Test

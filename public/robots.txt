@@ -1,4 +1,33 @@
+# Arama motorları ve yapay zekâ botları siteyi okuyabilir; panel kapalıdır.
 User-agent: *
+Allow: /
+Disallow: /panel/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /panel/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /panel/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /panel/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /panel/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /panel/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /panel/
+
+User-agent: Google-Extended
 Allow: /
 Disallow: /panel/
 

@@ -86,14 +86,14 @@ const Afis = ({ p, i, dil }: { p: Proje; i: number; dil: Dil }) => {
   );
 };
 
-function ilkDil(): Dil {
-  const kayitli = localStorage.getItem("dil");
-  if (kayitli === "tr" || kayitli === "en") return kayitli;
-  return navigator.language.toLowerCase().startsWith("tr") ? "tr" : "en";
+// Dil adresten gelir: / Türkçe, /en/ İngilizce. Böylece iki dil de ayrı, önceden çizilmiş birer sayfa (arama motorları
+// ve JavaScript çalıştırmayan yapay zekâ botları ikisini de okur).
+function adrestenDil(): Dil {
+  return typeof location !== "undefined" && location.pathname.startsWith("/en") ? "en" : "tr";
 }
 
-export default function App() {
-  const [dil, setDil] = useState<Dil>(ilkDil);
+export default function App({ ilk }: { ilk?: Dil }) {
+  const [dil] = useState<Dil>(() => ilk ?? adrestenDil());
   const m = METIN[dil];
   const [kopya, setKopya] = useState(false);
   const kopyala = () => {
@@ -103,7 +103,6 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = dil;
     document.title = dil === "tr" ? "Umut Öztürk — Full-stack geliştirici, Ankara" : "Umut Öztürk — Full-stack developer, Ankara";
-    localStorage.setItem("dil", dil);
   }, [dil]);
 
   // Bölümler ekrana girdikçe etiketler kâğıda "yapıştırılır".
@@ -121,9 +120,9 @@ export default function App() {
       <a className="atla" href="#icerik">{m.atla}</a>
       <header className="ust">
         <p className="ust-yazi">{m.ust1}<br /><u>{m.ust2}</u></p>
-        <button className="dil" onClick={() => setDil(dil === "tr" ? "en" : "tr")} aria-label={m.dilAciklama}>
+        <a className="dil" href={dil === "tr" ? "/en/" : "/"} hrefLang={dil === "tr" ? "en" : "tr"} aria-label={m.dilAciklama}>
           {m.dil}
-        </button>
+        </a>
       </header>
 
       <main id="icerik">

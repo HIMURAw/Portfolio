@@ -31,7 +31,7 @@ a { color: inherit; }
 .ust-yazi u { font-weight: 700; text-underline-offset: 2px; }
 .dil {
   font: 700 13px var(--mono); letter-spacing: .08em; color: var(--murekkep);
-  background: var(--kagit-acik); border: 2px solid var(--murekkep); padding: 6px 10px; cursor: pointer;
+  background: var(--kagit-acik); border: 2px solid var(--murekkep); padding: 6px 10px; cursor: pointer; display: inline-block; text-decoration: none;
   transform: rotate(3deg); transition: transform .25s;
 }
 .dil:hover { transform: rotate(-2deg) scale(1.06); }

@@ -1,11 +1,11 @@
 {
-  "name": "moncy-portfolio",
+  "name": "umutozturk-me",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/onceden-ciz.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
