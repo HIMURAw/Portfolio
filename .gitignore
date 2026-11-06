@@ -27,3 +27,4 @@ dist-ssr
 backup/
 .env
 public/models*
+.gstack/

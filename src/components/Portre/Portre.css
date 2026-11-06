@@ -1,0 +1,36 @@
+.character-model.portre {
+  z-index: 5 !important;
+}
+.portre {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  perspective: 1200px;
+}
+.portre-sahne {
+  position: relative;
+  z-index: 2;
+  height: 74%;
+  transform: translateX(var(--tx, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.portre-sahne img {
+  height: 100%;
+  width: auto;
+  display: block;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.character-loaded .portre-sahne img {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 1024px) {
+  .portre-sahne { height: 62%; }
+}

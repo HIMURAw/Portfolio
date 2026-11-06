@@ -189,15 +189,7 @@ const Contact = () => {
               )}
             </h2>
             <h5>
-              <MdCopyright /> 2026 ·{" "}
-              {language === "tr" ? "Tasarım ve 3D: " : "Design & 3D: "}
-              <a
-                href="https://github.com/red1-for-hek/portfolio-website"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Moncy Yohannan
-              </a>
+              <MdCopyright /> 2026 Umut Öztürk
             </h5>
           </div>
         </div>

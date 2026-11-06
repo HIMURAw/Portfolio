@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import "./App.css";
 
-const CharacterModel = lazy(() => import("./components/Character"));
+const Portre = lazy(() => import("./components/Portre"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 import { LoadingProvider } from "./context/LoadingProvider";
 import { LanguageProvider } from "./context/LanguageProvider";
@@ -14,7 +14,7 @@ const App = () => {
           <Suspense>
             <MainContainer>
               <Suspense>
-                <CharacterModel />
+                <Portre />
               </Suspense>
             </MainContainer>
           </Suspense>
