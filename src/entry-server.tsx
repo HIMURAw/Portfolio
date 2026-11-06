@@ -2,7 +2,7 @@
 import { StrictMode } from "react";
 import { renderToString } from "react-dom/server";
 import App from "./App";
-import { EPOSTA, PROJELER, SITE, type Dil } from "./icerik";
+import { DILLER, EPOSTA, GITHUB, PROFILLER, PROJELER, SITE, SSS, type Dil } from "./icerik";
 
 export function render(dil: Dil) {
   return renderToString(
@@ -12,4 +12,4 @@ export function render(dil: Dil) {
   );
 }
 
-export { EPOSTA, PROJELER, SITE };
+export { DILLER, EPOSTA, GITHUB, PROFILLER, PROJELER, SITE, SSS };

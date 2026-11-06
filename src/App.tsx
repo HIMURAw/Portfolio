@@ -1,6 +1,6 @@
 // Tek sayfa: kapak, çalışmalar, neler yaparım, iletişim. Kâğıda yapıştırılmış etiketler ve kalem çizimleri.
-import { useEffect, useState, type CSSProperties, type ReactElement } from "react";
-import { ARACLAR, EPOSTA, ISLER, METIN, PROJELER, SERTIFIKALAR, YOL, type Dil, type Is, type Parca, type Proje } from "./icerik";
+import { Fragment, useEffect, useState, type CSSProperties, type ReactElement } from "react";
+import { ARACLAR, DILLER, EPOSTA, GITHUB, INSTAGRAM, LINKEDIN, ISLER, METIN, PROJELER, SERTIFIKALAR, SSS, YOL, type Dil, type Is, type Parca, type Proje } from "./icerik";
 
 const Gulen = () => (
   <svg className="gulen" viewBox="0 0 40 40" aria-hidden="true">
@@ -42,10 +42,12 @@ const IKON: Record<Is["ikon"], ReactElement> = {
 const egim = (d: number) => ({ "--egim": `${d}deg` }) as CSSProperties;
 
 // Çerçeveli, eğik etiket: kalın ve ince kelimeler sırayla.
-const Etiket = ({ parca, gulen, derece }: { parca: Parca; gulen?: boolean; derece: number }) => (
-  <h2 className="etiket" style={egim(derece)}>
+const Etiket = ({ parca, gulen, derece, id }: { parca: Parca; gulen?: boolean; derece: number; id?: string }) => (
+  <h2 className="etiket" style={egim(derece)} id={id}>
     <span className="etiket-ic">
-      {parca.map(([y, kalin], i) => (kalin ? <b key={i}>{y}</b> : <span key={i}>{y}</span>))}
+      {parca.map(([y, kalin], i) => (
+        <Fragment key={i}>{i > 0 && " "}{kalin ? <b>{y}</b> : <span>{y}</span>}</Fragment>
+      ))}
       {gulen && <Gulen />}
     </span>
   </h2>
@@ -86,11 +88,27 @@ const Afis = ({ p, i, dil }: { p: Proje; i: number; dil: Dil }) => {
   );
 };
 
-// Dil adresten gelir: / Türkçe, /en/ İngilizce. Böylece iki dil de ayrı, önceden çizilmiş birer sayfa (arama motorları
-// ve JavaScript çalıştırmayan yapay zekâ botları ikisini de okur).
+// Dil adresten gelir: / Türkçe, /en/, /es/, /zh/, /hi/, /ar/. Her dil ayrı, önceden çizilmiş bir sayfa (arama
+// motorları ve JavaScript çalıştırmayan yapay zekâ botları hepsini okur).
 function adrestenDil(): Dil {
-  return typeof location !== "undefined" && location.pathname.startsWith("/en") ? "en" : "tr";
+  if (typeof location === "undefined") return "tr";
+  const k = location.pathname.split("/")[1];
+  return (DILLER.find(d => d.kod === k && d.kod !== "tr")?.kod) ?? "tr";
 }
+
+// Dil menüsü: JavaScript'siz de çalışır (details/summary); her dil kendi adıyla ve kendi dilinde yazılı.
+const DilMenusu = ({ dil, etiket }: { dil: Dil; etiket: string }) => (
+  <details className="dil">
+    <summary aria-label={etiket}>{dil.toUpperCase()}<span aria-hidden="true"> ▾</span></summary>
+    <ul>
+      {DILLER.map(d => (
+        <li key={d.kod}>
+          <a href={d.yol} hrefLang={d.hreflang} lang={d.hreflang} aria-current={d.kod === dil ? "page" : undefined}>{d.ad}</a>
+        </li>
+      ))}
+    </ul>
+  </details>
+);
 
 export default function App({ ilk }: { ilk?: Dil }) {
   const [dil] = useState<Dil>(() => ilk ?? adrestenDil());
@@ -99,11 +117,6 @@ export default function App({ ilk }: { ilk?: Dil }) {
   const kopyala = () => {
     navigator.clipboard?.writeText(EPOSTA).then(() => { setKopya(true); setTimeout(() => setKopya(false), 2000); });
   };
-
-  useEffect(() => {
-    document.documentElement.lang = dil;
-    document.title = dil === "tr" ? "Umut Öztürk — Full-stack geliştirici, Ankara" : "Umut Öztürk — Full-stack developer, Ankara";
-  }, [dil]);
 
   // Bölümler ekrana girdikçe etiketler kâğıda "yapıştırılır".
   useEffect(() => {
@@ -120,15 +133,13 @@ export default function App({ ilk }: { ilk?: Dil }) {
       <a className="atla" href="#icerik">{m.atla}</a>
       <header className="ust">
         <p className="ust-yazi">{m.ust1}<br /><u>{m.ust2}</u></p>
-        <a className="dil" href={dil === "tr" ? "/en/" : "/"} hrefLang={dil === "tr" ? "en" : "tr"} aria-label={m.dilAciklama}>
-          {m.dil}
-        </a>
+        <DilMenusu dil={dil} etiket={m.dilMenu} />
       </header>
 
       <main id="icerik">
         <section className="bolum kapak">
           <h1 className="isim">
-            <span className="etiket buyuk bir" style={egim(-9)}><span className="etiket-ic"><Gulen /><b>Umut</b></span></span>
+            <span className="etiket buyuk bir" style={egim(-9)}><span className="etiket-ic"><Gulen /><b>Umut</b></span></span>{" "}
             <Ok />
             <span className="etiket buyuk iki" style={egim(8)}><span className="etiket-ic"><span>Öztürk</span></span></span>
           </h1>
@@ -138,7 +149,7 @@ export default function App({ ilk }: { ilk?: Dil }) {
             <small>{m.yazNot}</small>
           </div>
           <figure className="foto kapak-foto">
-            <img src="/foto/kapak.webp" alt={dil === "tr" ? "Umut Öztürk, gece, boynunda kulaklık" : "Umut Öztürk at night, headphones around his neck"} width={900} height={1200} />
+            <img src="/foto/umut-ozturk.webp" alt={m.fotoAlt} width={900} height={1200} fetchPriority="high" />
           </figure>
         </section>
 
@@ -196,9 +207,21 @@ export default function App({ ilk }: { ilk?: Dil }) {
           </div>
         </section>
 
+        <section className="bolum sss" aria-labelledby="sss-baslik">
+          <Etiket parca={m.sss} derece={-2} id="sss-baslik" />
+          <dl className="sss-liste">
+            {SSS.map(x => (
+              <div key={x.s.tr}>
+                <dt>{x.s[dil]}</dt>
+                <dd>{x.c[dil]}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
         <section className="bolum iletisim" id="iletisim">
           <figure className="foto iletisim-foto">
-            <img src="/foto/iletisim.webp" alt="" width={760} height={1013} loading="lazy" />
+            <img src="/foto/umut-ozturk-portre.webp" alt="Umut Öztürk" width={760} height={1013} loading="lazy" />
           </figure>
           <div className="iletisim-sag">
             <p className="iletisim-metin">{m.iletisimMetin}</p>
@@ -208,7 +231,9 @@ export default function App({ ilk }: { ilk?: Dil }) {
                 <button type="button" className="kopyala" onClick={kopyala} aria-live="polite">{kopya ? m.kopyalandi : m.kopyala}</button>
                 <small>{m.epostaNot}</small>
               </li>
-              <li><a href="https://github.com/HIMURAw" target="_blank" rel="noopener" lang="en">github.com/HIMURAw</a></li>
+              <li><a href={GITHUB} target="_blank" rel="me noopener" lang="en">github.com/HIMURAw</a></li>
+              <li><a href={LINKEDIN} target="_blank" rel="me noopener" lang="en">linkedin.com/in/umutttt</a></li>
+              <li><a href={INSTAGRAM} target="_blank" rel="me noopener" lang="en">instagram.com/umut.ozturk0_</a></li>
               <li><a href="/cv/CV.docx" download>{m.cv}</a></li>
             </ul>
             <Etiket parca={m.iletisim} derece={-5} />

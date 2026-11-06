@@ -1,0 +1,15 @@
+{
+  "name": "Umut Öztürk",
+  "short_name": "Umut Öztürk",
+  "description": "Umut Öztürk — full-stack developer in Ankara, Turkey.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#d6d4c5",
+  "theme_color": "#d6d4c5",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

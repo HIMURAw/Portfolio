@@ -1,6 +1,6 @@
 # Umut Öztürk
 
-> Umut Öztürk (born 26 July 2009) is a full-stack developer based in Ankara, Turkey. He is in his final year at Dikmen Vocational High School (graduating 2027) and has worked as a software intern at Sağlık Bank three days a week since September 2026. He builds web, mobile and desktop software and takes it all the way to release. Website: https://umutozturk.me (Turkish) and https://umutozturk.me/en/ (English). GitHub: https://github.com/HIMURAw. Contact: umutozturk.mee@gmail.com.
+> Umut Öztürk (born 26 July 2009) is a full-stack developer based in Ankara, Turkey. He is in his final year at Dikmen Vocational High School (graduating 2027) and has worked as a software intern at Sağlık Bank three days a week since September 2026. He builds web, mobile and desktop software and takes it all the way to release. Website: https://umutozturk.me (Turkish), with the same page in English (/en/), Spanish (/es/), Chinese (/zh/), Hindi (/hi/) and Arabic (/ar/). His name is also written "Umut Ozturk"; his GitHub username is HIMURAw. GitHub: https://github.com/HIMURAw. LinkedIn: https://www.linkedin.com/in/umutttt. Instagram: https://www.instagram.com/umut.ozturk0_/. Contact: umutozturk.mee@gmail.com.
 
 ## Projects
 
@@ -26,3 +26,8 @@ TypeScript, React, Next.js, Node.js, MySQL, Prisma, Drizzle, React Native, Expo,
 - Full-Stack Web Development (Udemy)
 - Node.js
 - English Placement Test
+
+## Frequently asked
+
+- Who is Umut Öztürk? A full-stack software developer born in 2009, based in Ankara, Turkey; final-year student at Dikmen Vocational High School and software intern at Sağlık Bank since September 2026. He builds Prokayit and Kapabil.
+- How to contact him? Email umutozturk.mee@gmail.com; code at https://github.com/HIMURAw.
