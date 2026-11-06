@@ -1,6 +1,6 @@
 # umutozturk.me
 
-Umut Öztürk'ün kişisel sitesi. React + TypeScript + Vite + GSAP.
+Umut Öztürk'ün kişisel sitesi. React + TypeScript + Vite.
 
 - Geliştirme: `npm run dev`
 - Yayın: `./deploy.sh` (derler, `dist/`'i VDS'e gönderir; `m/` ve Kapabil APK'sı korunur)
