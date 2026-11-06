@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /panel/
+
+Sitemap: https://umutozturk.me/sitemap.xml

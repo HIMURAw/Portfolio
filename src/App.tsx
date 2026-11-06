@@ -1,6 +1,6 @@
 // Tek sayfa: kapak, çalışmalar, neler yaparım, iletişim. Kâğıda yapıştırılmış etiketler ve kalem çizimleri.
 import { useEffect, useState, type CSSProperties, type ReactElement } from "react";
-import { EPOSTA, ISLER, METIN, PROJELER, type Dil, type Is, type Parca } from "./icerik";
+import { ARACLAR, EPOSTA, ISLER, METIN, PROJELER, SERTIFIKALAR, YOL, type Dil, type Is, type Parca, type Proje } from "./icerik";
 
 const Gulen = () => (
   <svg className="gulen" viewBox="0 0 40 40" aria-hidden="true">
@@ -51,6 +51,41 @@ const Etiket = ({ parca, gulen, derece }: { parca: Parca; gulen?: boolean; derec
   </h2>
 );
 
+// Afiş: duvara bantla yapıştırılmış basılı kâğıt. Ekran görüntüsü kâğıda mürekkeple basılmış gibi (gri + çarpma);
+// üstüne gelince gerçek renkleri döner. Proje adı, harf sayısına göre afişin genişliğini tam doldurur.
+const EGIM = [-1.6, 1.2, 0.9, -1.1];
+const Afis = ({ p, i, dil }: { p: Proje; i: number; dil: Dil }) => {
+  const dis = !p.url.startsWith("/");
+  const a = p.afis;
+  return (
+    <li className="afis-kutu">
+      <a className="afis" href={p.url} target={dis ? "_blank" : undefined} rel="noopener" style={{ ...egim(EGIM[i % 4]), ["--n" as string]: p.ad.length } as CSSProperties}
+        aria-describedby={`afis-${i}`}>
+        <span className="bant bant-sol" aria-hidden="true" />
+        <span className="bant bant-sag" aria-hidden="true" />
+        <span className="afis-ust"><span>{p.tur[dil]}</span><span>{p.durum[dil]}</span></span>
+        <span className="afis-ad" lang="en">{p.ad}</span>
+        <span className={`afis-gorsel ${a.tur}`}>
+          {a.tur === "genis" && <img src={a.src} alt={p.alt[dil]} width={a.w} height={a.h} loading="lazy" />}
+          {a.tur === "telefonlar" && a.srcler.map((s, k) => <img key={s} src={s} alt={k === 0 ? p.alt[dil] : ""} width={390} height={780} loading="lazy" />)}
+          {a.tur === "masaustu" && <>
+            <img src={a.pencere} alt={p.alt[dil]} width={1100} height={671} loading="lazy" />
+            <img className="dock" src={a.dock} alt="" width={1100} height={162} loading="lazy" />
+          </>}
+        </span>
+        <span className="afis-alt"><span>{p.teknik}</span><span className="afis-url">{p.etiket}</span></span>
+      </a>
+      <div className="afis-aciklama" id={`afis-${i}`}>
+        <Yildiz />
+        <div>
+          <p>{p.kisa[dil]}</p>
+          <small>{p.bagNot[dil]}</small>
+        </div>
+      </div>
+    </li>
+  );
+};
+
 function ilkDil(): Dil {
   const kayitli = localStorage.getItem("dil");
   if (kayitli === "tr" || kayitli === "en") return kayitli;
@@ -60,9 +95,14 @@ function ilkDil(): Dil {
 export default function App() {
   const [dil, setDil] = useState<Dil>(ilkDil);
   const m = METIN[dil];
+  const [kopya, setKopya] = useState(false);
+  const kopyala = () => {
+    navigator.clipboard?.writeText(EPOSTA).then(() => { setKopya(true); setTimeout(() => setKopya(false), 2000); });
+  };
 
   useEffect(() => {
     document.documentElement.lang = dil;
+    document.title = dil === "tr" ? "Umut Öztürk — Full-stack geliştirici, Ankara" : "Umut Öztürk — Full-stack developer, Ankara";
     localStorage.setItem("dil", dil);
   }, [dil]);
 
@@ -70,7 +110,7 @@ export default function App() {
   useEffect(() => {
     const g = new IntersectionObserver(
       es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("gorundu"); g.unobserve(e.target); } }),
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "0px 0px -25% 0px" }
     );
     document.querySelectorAll(".bolum").forEach(b => g.observe(b));
     return () => g.disconnect();
@@ -78,6 +118,7 @@ export default function App() {
 
   return (
     <>
+      <a className="atla" href="#icerik">{m.atla}</a>
       <header className="ust">
         <p className="ust-yazi">{m.ust1}<br /><u>{m.ust2}</u></p>
         <button className="dil" onClick={() => setDil(dil === "tr" ? "en" : "tr")} aria-label={m.dilAciklama}>
@@ -85,7 +126,7 @@ export default function App() {
         </button>
       </header>
 
-      <main>
+      <main id="icerik">
         <section className="bolum kapak">
           <h1 className="isim">
             <span className="etiket buyuk bir" style={egim(-9)}><span className="etiket-ic"><Gulen /><b>Umut</b></span></span>
@@ -94,7 +135,7 @@ export default function App() {
           </h1>
           <div className="kapak-alt">
             <p>{m.kisa}</p>
-            <a href="#iletisim">{m.yazDugme}</a>
+            <a href="#iletisim">{m.yazDugme} ↓</a>
             <small>{m.yazNot}</small>
           </div>
           <figure className="foto kapak-foto">
@@ -103,25 +144,14 @@ export default function App() {
         </section>
 
         <section className="bolum calisma" id="calismalar">
-          <figure className="foto calisma-foto">
-            <img src="/foto/prokayit.webp" alt={dil === "tr" ? "Prokayit ana sayfası" : "Prokayit home page"} width={760} height={905} loading="lazy" />
-          </figure>
-          <div className="calisma-sag">
+          <div className="calisma-bas">
             <Etiket parca={m.calismalar} gulen derece={-4} />
             <p className="ben">{m.ben}</p>
-            <ul className="projeler">
-              {PROJELER.map(p => (
-                <li key={p.ad}>
-                  <Yildiz />
-                  <div>
-                    <h3 lang="en">{p.ad}</h3>
-                    <p>{p.kisa[dil]}</p>
-                    <a href={p.url} target={p.url.startsWith("/") ? undefined : "_blank"} rel="noopener">{p.etiket} ↗</a>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
+          <ul className="duvar">
+            {PROJELER.map((p, k) => <Afis key={p.ad} p={p} i={k} dil={dil} />)}
+          </ul>
+          <p className="duvar-ipucu">{m.afisIpucu}</p>
         </section>
 
         <section className="bolum yaptiklarim">
@@ -139,18 +169,47 @@ export default function App() {
           </ul>
         </section>
 
+        <section className="bolum yol">
+          <Etiket parca={m.yol} derece={3} />
+          <ol className="yol-liste">
+            {YOL.map(y => (
+              <li key={y.baslik.tr}>
+                <span className="yol-zaman">{y.zaman[dil]}</span>
+                <div>
+                  <h3>{y.baslik[dil]}</h3>
+                  <p>{y.alt[dil]}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="yol-alt">
+            <div>
+              <h3>{m.sertifikaBaslik}</h3>
+              <ul className="sertifikalar">
+                {SERTIFIKALAR.map(c => <li key={c.dosya}><a href={encodeURI(c.dosya)} target="_blank" rel="noopener">{c.ad[dil]}</a></li>)}
+              </ul>
+              <small>{m.sertifikaNot}</small>
+            </div>
+            <div>
+              <h3>{m.araclarBaslik}</h3>
+              <p className="araclar">{ARACLAR}</p>
+            </div>
+          </div>
+        </section>
+
         <section className="bolum iletisim" id="iletisim">
           <figure className="foto iletisim-foto">
             <img src="/foto/iletisim.webp" alt="" width={760} height={1013} loading="lazy" />
           </figure>
           <div className="iletisim-sag">
+            <p className="iletisim-metin">{m.iletisimMetin}</p>
             <ul className="baglantilar">
               <li>
-                <a href={`mailto:${EPOSTA}`}>{EPOSTA}</a>
+                <a href={`mailto:${EPOSTA}`} lang="en">{EPOSTA}</a>
+                <button type="button" className="kopyala" onClick={kopyala} aria-live="polite">{kopya ? m.kopyalandi : m.kopyala}</button>
                 <small>{m.epostaNot}</small>
               </li>
-              <li><a href="https://github.com/HIMURAw" target="_blank" rel="noopener">github.com/HIMURAw</a></li>
-              <li><a href="https://www.youtube.com/@komedigozlugu" target="_blank" rel="noopener">{m.kanal}</a></li>
+              <li><a href="https://github.com/HIMURAw" target="_blank" rel="noopener" lang="en">github.com/HIMURAw</a></li>
               <li><a href="/cv/CV.docx" download>{m.cv}</a></li>
             </ul>
             <Etiket parca={m.iletisim} derece={-5} />
@@ -161,6 +220,7 @@ export default function App() {
       <footer className="alt">
         <span>© {new Date().getFullYear()} Umut Öztürk</span>
         <span>{m.alt}</span>
+        <a href="#">{m.yukari} ↑</a>
       </footer>
     </>
   );
